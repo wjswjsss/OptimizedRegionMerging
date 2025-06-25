@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_region_merging_FILE /Users/wangjiashu/Desktop/ComputerVision/PC_segmentation/project/build/region_merging)
+set(__QT_DEPLOY_TARGET_region_merging_TYPE EXECUTABLE)
