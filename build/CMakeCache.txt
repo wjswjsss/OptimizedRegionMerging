@@ -18,7 +18,7 @@
 BUILD_SHARED_LIBS:BOOL=ON
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.87.0
+Boost_DIR:PATH=/opt/homebrew/lib/cmake/Boost-1.88.0
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/opt/homebrew/include
@@ -481,11 +481,17 @@ QT_ADDITIONAL_PACKAGES_PREFIX_PATH:STRING=
 //The directory containing a CMake configuration file for Qhull.
 Qhull_DIR:PATH=/opt/homebrew/lib/cmake/Qhull
 
+//The directory containing a CMake configuration file for Qt6CorePrivate.
+Qt6CorePrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6CorePrivate
+
 //The directory containing a CMake configuration file for Qt6CoreTools.
 Qt6CoreTools_DIR:PATH=/opt/homebrew/lib/cmake/Qt6CoreTools
 
 //The directory containing a CMake configuration file for Qt6Core.
 Qt6Core_DIR:PATH=/opt/homebrew/lib/cmake/Qt6Core
+
+//The directory containing a CMake configuration file for Qt6DBusPrivate.
+Qt6DBusPrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6DBusPrivate
 
 //The directory containing a CMake configuration file for Qt6DBusTools.
 Qt6DBusTools_DIR:PATH=/opt/homebrew/lib/cmake/Qt6DBusTools
@@ -493,17 +499,29 @@ Qt6DBusTools_DIR:PATH=/opt/homebrew/lib/cmake/Qt6DBusTools
 //The directory containing a CMake configuration file for Qt6DBus.
 Qt6DBus_DIR:PATH=/opt/homebrew/lib/cmake/Qt6DBus
 
+//The directory containing a CMake configuration file for Qt6GuiPrivate.
+Qt6GuiPrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6GuiPrivate
+
 //The directory containing a CMake configuration file for Qt6GuiTools.
 Qt6GuiTools_DIR:PATH=/opt/homebrew/lib/cmake/Qt6GuiTools
 
 //The directory containing a CMake configuration file for Qt6Gui.
 Qt6Gui_DIR:PATH=/opt/homebrew/lib/cmake/Qt6Gui
 
+//The directory containing a CMake configuration file for Qt6OpenGLPrivate.
+Qt6OpenGLPrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6OpenGLPrivate
+
+//The directory containing a CMake configuration file for Qt6OpenGLWidgetsPrivate.
+Qt6OpenGLWidgetsPrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6OpenGLWidgetsPrivate
+
 //The directory containing a CMake configuration file for Qt6OpenGLWidgets.
 Qt6OpenGLWidgets_DIR:PATH=/opt/homebrew/lib/cmake/Qt6OpenGLWidgets
 
 //The directory containing a CMake configuration file for Qt6OpenGL.
 Qt6OpenGL_DIR:PATH=/opt/homebrew/lib/cmake/Qt6OpenGL
+
+//The directory containing a CMake configuration file for Qt6WidgetsPrivate.
+Qt6WidgetsPrivate_DIR:PATH=/opt/homebrew/lib/cmake/Qt6WidgetsPrivate
 
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=/opt/homebrew/lib/cmake/Qt6WidgetsTools
@@ -554,28 +572,28 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 ZLIB_LIBRARY_RELEASE:FILEPATH=/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
 
 //The directory containing a CMake configuration file for boost_atomic.
-boost_atomic_DIR:PATH=/opt/homebrew/lib/cmake/boost_atomic-1.87.0
+boost_atomic_DIR:PATH=/opt/homebrew/lib/cmake/boost_atomic-1.88.0
 
 //The directory containing a CMake configuration file for boost_filesystem.
-boost_filesystem_DIR:PATH=/opt/homebrew/lib/cmake/boost_filesystem-1.87.0
+boost_filesystem_DIR:PATH=/opt/homebrew/lib/cmake/boost_filesystem-1.88.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.87.0
+boost_headers_DIR:PATH=/opt/homebrew/lib/cmake/boost_headers-1.88.0
 
 //The directory containing a CMake configuration file for boost_iostreams.
-boost_iostreams_DIR:PATH=/opt/homebrew/lib/cmake/boost_iostreams-1.87.0
+boost_iostreams_DIR:PATH=/opt/homebrew/lib/cmake/boost_iostreams-1.88.0
 
 //The directory containing a CMake configuration file for boost_random.
-boost_random_DIR:PATH=/opt/homebrew/lib/cmake/boost_random-1.87.0
+boost_random_DIR:PATH=/opt/homebrew/lib/cmake/boost_random-1.88.0
 
 //The directory containing a CMake configuration file for boost_regex.
-boost_regex_DIR:PATH=/opt/homebrew/lib/cmake/boost_regex-1.87.0
+boost_regex_DIR:PATH=/opt/homebrew/lib/cmake/boost_regex-1.88.0
 
 //The directory containing a CMake configuration file for boost_serialization.
-boost_serialization_DIR:PATH=/opt/homebrew/lib/cmake/boost_serialization-1.87.0
+boost_serialization_DIR:PATH=/opt/homebrew/lib/cmake/boost_serialization-1.88.0
 
 //The directory containing a CMake configuration file for boost_system.
-boost_system_DIR:PATH=/opt/homebrew/lib/cmake/boost_system-1.87.0
+boost_system_DIR:PATH=/opt/homebrew/lib/cmake/boost_system-1.88.0
 
 //double-conversion include directory
 double-conversion_INCLUDE_DIR:PATH=/opt/homebrew/include/double-conversion
@@ -794,7 +812,7 @@ EXPAT_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Eigen3_INCLUDE_DIR
 Eigen3_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.87.0/BoostConfig.cmake][c ][v1.87.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/opt/homebrew/lib/cmake/Boost-1.88.0/BoostConfig.cmake][c ][v1.88.0()]
 //Details about finding EXPAT
 FIND_PACKAGE_MESSAGE_DETAILS_EXPAT:INTERNAL=[/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/libexpat.tbd][/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include][v2.6.3()]
 //Details about finding Eigen3
@@ -806,7 +824,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_JPEG:INTERNAL=[/opt/homebrew/lib/libjpeg.dylib][/op
 //Details about finding LZ4
 FIND_PACKAGE_MESSAGE_DETAILS_LZ4:INTERNAL=[/opt/homebrew/lib/liblz4.dylib][/opt/homebrew/include][v1.10.0()]
 //Details about finding LZMA
-FIND_PACKAGE_MESSAGE_DETAILS_LZMA:INTERNAL=[/opt/homebrew/lib/liblzma.dylib][/opt/homebrew/include][v5.6.4()]
+FIND_PACKAGE_MESSAGE_DETAILS_LZMA:INTERNAL=[/opt/homebrew/lib/liblzma.dylib][/opt/homebrew/include][v5.8.1()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/OpenGL.framework][/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
 //Details about finding PCL
@@ -842,7 +860,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_PCL_SURFACE:INTERNAL=[/opt/homebrew/lib/libpcl_surf
 //Details about finding PCL_VISUALIZATION
 FIND_PACKAGE_MESSAGE_DETAILS_PCL_VISUALIZATION:INTERNAL=[/opt/homebrew/lib/libpcl_visualization.dylib][/opt/homebrew/include/pcl-1.15][v()]
 //Details about finding PNG
-FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/opt/homebrew/lib/libpng.dylib][/opt/homebrew/include][v1.6.47()]
+FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/opt/homebrew/lib/libpng.dylib][/opt/homebrew/include][v1.6.50()]
 //Details about finding Pcap
 FIND_PACKAGE_MESSAGE_DETAILS_Pcap:INTERNAL=[/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/libpcap.tbd][/Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include][v()]
 //Details about finding TIFF
@@ -860,7 +878,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_double-conversion:INTERNAL=[/opt/homebrew/lib/libdo
 //Details about finding libusb
 FIND_PACKAGE_MESSAGE_DETAILS_libusb:INTERNAL=[/opt/homebrew/lib/libusb-1.0.dylib][/opt/homebrew/include][v()]
 //Details about finding nlohmann_json
-FIND_PACKAGE_MESSAGE_DETAILS_nlohmann_json:INTERNAL=[/opt/homebrew/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake][v3.11.3()]
+FIND_PACKAGE_MESSAGE_DETAILS_nlohmann_json:INTERNAL=[/opt/homebrew/share/cmake/nlohmann_json/nlohmann_jsonConfig.cmake][v3.12.0()]
 //Details about finding utf8cpp
 FIND_PACKAGE_MESSAGE_DETAILS_utf8cpp:INTERNAL=[/opt/homebrew/include/utf8cpp][v()]
 //ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
@@ -1087,6 +1105,8 @@ QT_FEATURE_appstore_compliant:INTERNAL=OFF
 QT_FEATURE_arm_crc32:INTERNAL=ON
 //Qt feature: arm_crypto (from target Qt6::Core)
 QT_FEATURE_arm_crypto:INTERNAL=ON
+//Qt feature: arm_sve (from target Qt6::Core)
+QT_FEATURE_arm_sve:INTERNAL=ON
 //Qt feature: avx (from target Qt6::Core)
 QT_FEATURE_avx:INTERNAL=OFF
 //Qt feature: avx2 (from target Qt6::Core)
@@ -1169,6 +1189,8 @@ QT_FEATURE_cxx11_future:INTERNAL=ON
 QT_FEATURE_cxx17_filesystem:INTERNAL=ON
 //Qt feature: cxx20 (from target Qt6::Core)
 QT_FEATURE_cxx20:INTERNAL=OFF
+//Qt feature: cxx20_format (from target Qt6::Core)
+QT_FEATURE_cxx20_format:INTERNAL=OFF
 //Qt feature: cxx23_stacktrace (from target Qt6::Core)
 QT_FEATURE_cxx23_stacktrace:INTERNAL=OFF
 //Qt feature: cxx2a (from target Qt6::Core)
@@ -1211,10 +1233,14 @@ QT_FEATURE_directfb:INTERNAL=OFF
 QT_FEATURE_directwrite:INTERNAL=OFF
 //Qt feature: directwrite3 (from target Qt6::Gui)
 QT_FEATURE_directwrite3:INTERNAL=OFF
+//Qt feature: directwritecolrv1 (from target Qt6::Gui)
+QT_FEATURE_directwritecolrv1:INTERNAL=OFF
 //Qt feature: dladdr (from target Qt6::Core)
 QT_FEATURE_dladdr:INTERNAL=ON
 //Qt feature: dlopen (from target Qt6::Core)
 QT_FEATURE_dlopen:INTERNAL=ON
+//Qt feature: doc_snippets (from target Qt6::Core)
+QT_FEATURE_doc_snippets:INTERNAL=OFF
 //Qt feature: dockwidget (from target Qt6::Widgets)
 QT_FEATURE_dockwidget:INTERNAL=ON
 //Qt feature: doubleconversion (from target Qt6::Core)
@@ -1257,6 +1283,8 @@ QT_FEATURE_eglfs_vsp2:INTERNAL=OFF
 QT_FEATURE_eglfs_x11:INTERNAL=OFF
 //Qt feature: elf_private_full_version (from target Qt6::Core)
 QT_FEATURE_elf_private_full_version:INTERNAL=OFF
+//Qt feature: emojisegmenter (from target Qt6::Gui)
+QT_FEATURE_emojisegmenter:INTERNAL=ON
 //Qt feature: errormessage (from target Qt6::Widgets)
 QT_FEATURE_errormessage:INTERNAL=ON
 //Qt feature: etw (from target Qt6::Core)
@@ -1281,6 +1309,10 @@ QT_FEATURE_fontconfig:INTERNAL=OFF
 QT_FEATURE_fontdialog:INTERNAL=ON
 //Qt feature: force_asserts (from target Qt6::Core)
 QT_FEATURE_force_asserts:INTERNAL=OFF
+//Qt feature: force_bundled_libs (from target Qt6::Core)
+QT_FEATURE_force_bundled_libs:INTERNAL=OFF
+//Qt feature: force_system_libs (from target Qt6::Core)
+QT_FEATURE_force_system_libs:INTERNAL=OFF
 //Qt feature: forkfd_pidfd (from target Qt6::Core)
 QT_FEATURE_forkfd_pidfd:INTERNAL=OFF
 //Qt feature: formlayout (from target Qt6::Widgets)
@@ -1385,6 +1417,8 @@ QT_FEATURE_kms:INTERNAL=OFF
 QT_FEATURE_label:INTERNAL=ON
 //Qt feature: largefile (from target Qt6::Core)
 QT_FEATURE_largefile:INTERNAL=ON
+//Qt feature: lasx (from target Qt6::Core)
+QT_FEATURE_lasx:INTERNAL=OFF
 //Qt feature: lcdnumber (from target Qt6::Widgets)
 QT_FEATURE_lcdnumber:INTERNAL=ON
 //Qt feature: libcpp_hardening (from target Qt6::Core)
@@ -1415,6 +1449,8 @@ QT_FEATURE_listwidget:INTERNAL=ON
 QT_FEATURE_localtime_r:INTERNAL=ON
 //Qt feature: localtime_s (from target Qt6::Core)
 QT_FEATURE_localtime_s:INTERNAL=OFF
+//Qt feature: lsx (from target Qt6::Core)
+QT_FEATURE_lsx:INTERNAL=OFF
 //Qt feature: lttng (from target Qt6::Core)
 QT_FEATURE_lttng:INTERNAL=OFF
 //Qt feature: mainwindow (from target Qt6::Widgets)
@@ -1521,6 +1557,12 @@ QT_FEATURE_progressbar:INTERNAL=ON
 QT_FEATURE_progressdialog:INTERNAL=ON
 //Qt feature: proxymodel (from target Qt6::Core)
 QT_FEATURE_proxymodel:INTERNAL=ON
+//Qt feature: pthread_clockjoin (from target Qt6::Core)
+QT_FEATURE_pthread_clockjoin:INTERNAL=OFF
+//Qt feature: pthread_condattr_setclock (from target Qt6::Core)
+QT_FEATURE_pthread_condattr_setclock:INTERNAL=OFF
+//Qt feature: pthread_timedjoin (from target Qt6::Core)
+QT_FEATURE_pthread_timedjoin:INTERNAL=OFF
 //Qt feature: pushbutton (from target Qt6::Widgets)
 QT_FEATURE_pushbutton:INTERNAL=ON
 //Qt feature: qqnx_imf (from target Qt6::Gui)
@@ -1529,6 +1571,8 @@ QT_FEATURE_qqnx_imf:INTERNAL=OFF
 QT_FEATURE_qqnx_pps:INTERNAL=OFF
 //Qt feature: qt_framework (from target Qt6::Core)
 QT_FEATURE_qt_framework:INTERNAL=ON
+//Qt feature: qtgui_threadpool (from target Qt6::Gui)
+QT_FEATURE_qtgui_threadpool:INTERNAL=ON
 //Qt feature: radiobutton (from target Qt6::Widgets)
 QT_FEATURE_radiobutton:INTERNAL=ON
 //Qt feature: raster_64bit (from target Qt6::Gui)
@@ -1687,6 +1731,8 @@ QT_FEATURE_tablewidget:INTERNAL=ON
 QT_FEATURE_tabwidget:INTERNAL=ON
 //Qt feature: temporaryfile (from target Qt6::Core)
 QT_FEATURE_temporaryfile:INTERNAL=ON
+//Qt feature: test_gui (from target Qt6::Core)
+QT_FEATURE_test_gui:INTERNAL=ON
 //Qt feature: testlib (from target Qt6::Core)
 QT_FEATURE_testlib:INTERNAL=ON
 //Qt feature: textbrowser (from target Qt6::Widgets)
@@ -1708,7 +1754,9 @@ QT_FEATURE_thread:INTERNAL=ON
 //Qt feature: timezone (from target Qt6::Core)
 QT_FEATURE_timezone:INTERNAL=ON
 //Qt feature: timezone_locale (from target Qt6::Core)
-QT_FEATURE_timezone_locale:INTERNAL=ON
+QT_FEATURE_timezone_locale:INTERNAL=OFF
+//Qt feature: timezone_tzdb (from target Qt6::Core)
+QT_FEATURE_timezone_tzdb:INTERNAL=OFF
 //Qt feature: toolbar (from target Qt6::Widgets)
 QT_FEATURE_toolbar:INTERNAL=ON
 //Qt feature: toolbox (from target Qt6::Widgets)
@@ -1763,8 +1811,12 @@ QT_FEATURE_vnc:INTERNAL=OFF
 QT_FEATURE_vsp2:INTERNAL=OFF
 //Qt feature: vulkan (from target Qt6::Gui)
 QT_FEATURE_vulkan:INTERNAL=ON
+//Qt feature: vxworksevdev (from target Qt6::Gui)
+QT_FEATURE_vxworksevdev:INTERNAL=OFF
 //Qt feature: wasm_exceptions (from target Qt6::Core)
 QT_FEATURE_wasm_exceptions:INTERNAL=OFF
+//Qt feature: wasm_jspi (from target Qt6::Core)
+QT_FEATURE_wasm_jspi:INTERNAL=OFF
 //Qt feature: wasm_simd128 (from target Qt6::Core)
 QT_FEATURE_wasm_simd128:INTERNAL=OFF
 //Qt feature: wayland (from target Qt6::Gui)

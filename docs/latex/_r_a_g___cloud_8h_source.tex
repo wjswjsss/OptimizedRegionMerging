@@ -1,0 +1,68 @@
+\doxysection{RAG\+\_\+\+Cloud.\+h}
+\hypertarget{_r_a_g___cloud_8h_source}{}\label{_r_a_g___cloud_8h_source}\index{include/RAG\_Cloud.h@{include/RAG\_Cloud.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Vertex\_Cloud.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Edge\_Cloud.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Point\_Cloud.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}BaseFeatures.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}NNG.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}RegionAdjacencyGraph.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}RAGCallbacks.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }PC\_GetFeat\ =\ RAGCallbacks::GetFeatures<PointCloudFeatures,\ Edge\_Cloud,\ Vertex\_Cloud>;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }PC\_Update\ =\ RAGCallbacks::UpdateFeatures<PointCloudFeatures,\ Edge\_Cloud,\ Vertex\_Cloud>;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ }PC\_Merge\ =\ RAGCallbacks::MergingCriteria<PointCloudFeatures,\ Edge\_Cloud,\ Vertex\_Cloud>;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }RAG\_Cloud\ :\ \textcolor{keyword}{public}\ RegionAdjacencyGraph<Vertex\_Cloud,\ Edge\_Cloud,\ PointCloudFeatures>}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ PC\_GetFeat\ get\_features\_func;}
+\DoxyCodeLine{00020\ \ \ \ \ RAG\_Cloud(\mbox{\hyperlink{class_point___cloud}{Point\_Cloud}}\ *pc,\ \textcolor{keywordtype}{double}\ alpha,\ \textcolor{keywordtype}{double}\ search\_radius,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ PointCloudNamespace::GetFeatures\ get\_vertex\_features,}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Update\ update\_features,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Merge\ MC);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ RAG\_Cloud(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *root,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{double}\ alpha,\ \textcolor{keywordtype}{double}\ search\_radius,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Update\ update\_features,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Merge\ MC);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ RAG\_Cloud(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *root,\ \textcolor{keywordtype}{int}\ size,\ \textcolor{keywordtype}{double}\ alpha,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Update\ update\_features,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PC\_Merge\ MC);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \string~RAG\_Cloud();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ output(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ \ \ \ \ std::pair<Vertex\ *,\ int>\ get\_outputs();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{class_point_cloud_features}{PointCloudFeatures}}\ *features\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00040\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ cloud\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_point___cloud}{Point\_Cloud}}\ *PC\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{double}\ alpha;}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{double}\ search\_radius;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ connect\_vertex\_and\_edge()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ connect\_vertex\_and\_edge2(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *root);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ connect\_vertex\_and\_edge3(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *root);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ double\ merge\_E\_Sij(Vertex\_Cloud*,\ Vertex\_Cloud*);}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ kd\_tree\_radius\_consturct\_topo(\textcolor{keywordtype}{double});}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ kd\_tree\_knn\_consturct\_topo(\textcolor{keywordtype}{int});}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ full\_linkage\_topo();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_edges(\textcolor{keywordtype}{int}\ edge\_index);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_vertice();}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_vertice(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *);}
+\DoxyCodeLine{00056\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ initial\_cloud(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ test\ =\ 0;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ pcl::PointCloud<pcl::Normal>::Ptr\ normal\_cloud\ =\ nullptr;}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00062\ \};}
+
+\end{DoxyCode}

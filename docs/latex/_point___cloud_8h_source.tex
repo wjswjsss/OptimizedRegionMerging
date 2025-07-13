@@ -1,0 +1,43 @@
+\doxysection{Point\+\_\+\+Cloud.\+h}
+\hypertarget{_point___cloud_8h_source}{}\label{_point___cloud_8h_source}\index{include/Point\_Cloud.h@{include/Point\_Cloud.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ laslib}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}lasreader.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}laswriter.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <pcl/point\_types.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <pcl/filters/voxel\_grid.h>}\ \textcolor{comment}{//\ {\ucr}{\ucr}{\ucr}磬ʹ{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}˲{\ucr}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }Point\_Cloud}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ {\ucr}{\ucr}{\ucr}{\ucr}}}
+\DoxyCodeLine{00016\ \ \ \ \ Point\_Cloud(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \string~Point\_Cloud();}
+\DoxyCodeLine{00019\ \ \ \ \ LASreader\ *get\_las\_reader();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:\ \textcolor{comment}{//\ {\ucr}{\ucr}Ա}}
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ pro\_info;}
+\DoxyCodeLine{00023\ \ \ \ \ uint32\_t\ count;}
+\DoxyCodeLine{00024\ \ \ \ \ vector<int>\ labels;}
+\DoxyCodeLine{00025\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ pcl\_cloud;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ LASheader\ header;}}
+\DoxyCodeLine{00027\ \ \ \ \ LASheader\ get\_header();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ save\_as\_las\_file(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ \textcolor{keywordtype}{double});}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ get\_pcl\_points();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ LASreadOpener\ lasLoad;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *file\_path\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00036\ \ \ \ \ vector<int>\ get\_unique\_labels();}
+\DoxyCodeLine{00037\ \};}
+
+\end{DoxyCode}

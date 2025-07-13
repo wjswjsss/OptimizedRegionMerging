@@ -1,0 +1,143 @@
+\doxysection{Rabbani\+Vertex Class Reference}
+\hypertarget{class_rabbani_vertex}{}\label{class_rabbani_vertex}\index{RabbaniVertex@{RabbaniVertex}}
+
+
+Inheritance diagram for Rabbani\+Vertex\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_rabbani_vertex__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Rabbani\+Vertex\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{class_rabbani_vertex__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rabbani_vertex_a7eb698194ccd11ad45770ede03633065}\label{class_rabbani_vertex_a7eb698194ccd11ad45770ede03633065} 
+{\bfseries Rabbani\+Vertex} (int id)
+\item 
+\Hypertarget{class_rabbani_vertex_a050aceb4210fe068f1c3856b3e8b87ed}\label{class_rabbani_vertex_a050aceb4210fe068f1c3856b3e8b87ed} 
+{\bfseries Rabbani\+Vertex} (int id, int k)
+\item 
+\Hypertarget{class_rabbani_vertex_a954757b05f99cee4b22b5448e272e0d5}\label{class_rabbani_vertex_a954757b05f99cee4b22b5448e272e0d5} 
+{\bfseries Rabbani\+Vertex} (int id, int k, \mbox{\hyperlink{class_rabbani_features}{Rabbani\+Features}} \texorpdfstring{$\ast$}{*}features)
+\item 
+\Hypertarget{class_rabbani_vertex_a3b58d6429d90eb6658263ffaa817f7fc}\label{class_rabbani_vertex_a3b58d6429d90eb6658263ffaa817f7fc} 
+void {\bfseries show\+\_\+vertices} ()
+\item 
+virtual int \mbox{\hyperlink{class_rabbani_vertex_aa05bed8fb0351645253db9c6108dc488}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_vertex}{Vertex}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Vertex} (int id, int connection\+\_\+degree, double radius)
+\item 
+{\bfseries Vertex} (int ID, \mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*}features)
+\item 
+{\bfseries Vertex} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\item 
+void {\bfseries push} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}ptr\+\_\+e)
+\item 
+void {\bfseries push\+\_\+range} (int \texorpdfstring{$\ast$}{*}first, int \texorpdfstring{$\ast$}{*}last)
+\item 
+void {\bfseries add\+\_\+next\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}ptr\+\_\+next)
+\item 
+void {\bfseries remove\+\_\+edge} (int edge\+\_\+id)
+\item 
+void {\bfseries change\+\_\+direct} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}new\+\_\+direct, \mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*}nng)
+\item 
+void {\bfseries set\+\_\+position\+\_\+dimention} (int dimention)
+\item 
+void {\bfseries append\+\_\+sign} (bool sign)
+\item 
+int {\bfseries get\+\_\+sign} ()
+\item 
+void {\bfseries reset} ()
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other) const
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rabbani_vertex_af109273491321cce981672ca64966aca}\label{class_rabbani_vertex_af109273491321cce981672ca64966aca} 
+Eigen\+::\+Vector3d {\bfseries normal} = Eigen\+::\+Vector3d\+::\+Zero()
+\item 
+\Hypertarget{class_rabbani_vertex_a1f21d37bdbf1c296c7849d7c81fad5f3}\label{class_rabbani_vertex_a1f21d37bdbf1c296c7849d7c81fad5f3} 
+int {\bfseries Org\+\_\+\+ID}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_vertex}{Vertex}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries ID}
+\item 
+int {\bfseries position\+\_\+dimension}
+\item 
+double \texorpdfstring{$\ast$}{*} {\bfseries positions}
+\item 
+double {\bfseries radius}
+\item 
+int {\bfseries connection\+\_\+degree}
+\item 
+int {\bfseries color}
+\item 
+int {\bfseries size}
+\item 
+State {\bfseries state}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+in\+\_\+region}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries last}
+\item 
+bool {\bfseries is\+\_\+visited}
+\item 
+bool {\bfseries is\+\_\+built\+\_\+tree} = false
+\item 
+std\+::vector$<$ int $>$ {\bfseries edges}
+\item 
+std\+::vector$<$ int $>$ {\bfseries merged\+\_\+vertice}
+\item 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries direct}
+\item 
+\mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*} {\bfseries ptr\+\_\+features}
+\item 
+int {\bfseries bit\+\_\+sign}
+\item 
+int {\bfseries bits\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_rabbani_vertex_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rabbani_vertex_aa05bed8fb0351645253db9c6108dc488}\index{RabbaniVertex@{RabbaniVertex}!GetID@{GetID}}
+\index{GetID@{GetID}!RabbaniVertex@{RabbaniVertex}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily \label{class_rabbani_vertex_aa05bed8fb0351645253db9c6108dc488} 
+int Rabbani\+Vertex\+::\+Get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_vertex}{Vertex}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Rabbani\+Vertex.\+h\item 
+src/Rabbani\+Vertex.\+cpp\end{DoxyCompactItemize}

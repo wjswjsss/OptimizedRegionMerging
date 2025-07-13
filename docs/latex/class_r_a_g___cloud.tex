@@ -1,0 +1,104 @@
+\doxysection{RAG\+\_\+\+Cloud Class Reference}
+\hypertarget{class_r_a_g___cloud}{}\label{class_r_a_g___cloud}\index{RAG\_Cloud@{RAG\_Cloud}}
+
+
+Inheritance diagram for RAG\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_r_a_g___cloud__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for RAG\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_r_a_g___cloud__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_a_g___cloud_aee1268d2256602ee1830b5bb2acdee70}\label{class_r_a_g___cloud_aee1268d2256602ee1830b5bb2acdee70} 
+{\bfseries RAG\+\_\+\+Cloud} (\mbox{\hyperlink{class_point___cloud}{Point\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}pc, double alpha, double search\+\_\+radius, PC\+\_\+\+Update update\+\_\+features, PC\+\_\+\+Merge MC)
+\item 
+\Hypertarget{class_r_a_g___cloud_a9544b1dd442a7c3eb7155e7028655350}\label{class_r_a_g___cloud_a9544b1dd442a7c3eb7155e7028655350} 
+{\bfseries RAG\+\_\+\+Cloud} (\mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}root, int size, double alpha, double search\+\_\+radius, PC\+\_\+\+Update update\+\_\+features, PC\+\_\+\+Merge MC)
+\item 
+\Hypertarget{class_r_a_g___cloud_a525bdb8cfcb7f02230cdf067efd83726}\label{class_r_a_g___cloud_a525bdb8cfcb7f02230cdf067efd83726} 
+{\bfseries RAG\+\_\+\+Cloud} (\mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}root, int size, double alpha, PC\+\_\+\+Update update\+\_\+features, PC\+\_\+\+Merge MC)
+\item 
+void \mbox{\hyperlink{class_r_a_g___cloud_aeb3d906992212cf84f31e161a2bb8676}{output}} (const char \texorpdfstring{$\ast$}{*}) override
+\item 
+\Hypertarget{class_r_a_g___cloud_a1ffc41534bdee16f306015488a8cc5f3}\label{class_r_a_g___cloud_a1ffc41534bdee16f306015488a8cc5f3} 
+std\+::pair$<$ \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, int $>$ {\bfseries get\+\_\+outputs} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Vertex\+\_\+\+Cloud, Edge\+\_\+\+Cloud, Point\+Cloud\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Region\+Adjacency\+Graph} (int vertice\+\_\+num, int edge\+\_\+num, Update\+Features update\+\_\+features, Merging\+Criteria MC)
+\item 
+\mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*} {\bfseries run} (double threshold, Run\+Mode mode, int region\+\_\+size=2500)
+\item 
+void {\bfseries initial\+\_\+vertex\+\_\+color} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_r_a_g___cloud_ab4fb2a98f998ef2f0d241d0328829a84}\label{class_r_a_g___cloud_ab4fb2a98f998ef2f0d241d0328829a84} 
+PC\+\_\+\+Get\+Feat {\bfseries get\+\_\+features\+\_\+func}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Vertex\+\_\+\+Cloud, Edge\+\_\+\+Cloud, Point\+Cloud\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries test}
+\item 
+Update\+Features {\bfseries update\+\_\+features\+\_\+func}
+\item 
+Merging\+Criteria {\bfseries merging\+\_\+criteria}
+\item 
+\mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*} {\bfseries vertice}
+\item 
+\mbox{\hyperlink{class_edge___cloud}{Edge\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*} {\bfseries edges}
+\item 
+\mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*} {\bfseries nng}
+\item 
+std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{struct_compare_a_pointers}{Compare\+APointers}} $>$ {\bfseries max\+\_\+priqueue}
+\item 
+int {\bfseries edge\+\_\+num}
+\item 
+int {\bfseries vertice\+\_\+num}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Vertex\+\_\+\+Cloud, Edge\+\_\+\+Cloud, Point\+Cloud\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries Update\+Features}) (\mbox{\hyperlink{class_point_cloud_features}{Point\+Cloud\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_point_cloud_features}{Point\+Cloud\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_edge___cloud}{Edge\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*})
+\item 
+typedef double(\texorpdfstring{$\ast$}{*} {\bfseries Merging\+Criteria}) (\mbox{\hyperlink{class_point_cloud_features}{Point\+Cloud\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_point_cloud_features}{Point\+Cloud\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_edge___cloud}{Edge\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_r_a_g___cloud_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_r_a_g___cloud_aeb3d906992212cf84f31e161a2bb8676}\index{RAG\_Cloud@{RAG\_Cloud}!output@{output}}
+\index{output@{output}!RAG\_Cloud@{RAG\_Cloud}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily \label{class_r_a_g___cloud_aeb3d906992212cf84f31e161a2bb8676} 
+void RAG\+\_\+\+Cloud\+::output (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{output\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Vertex\+\_\+\+Cloud, Edge\+\_\+\+Cloud, Point\+Cloud\+Features $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/RAG\+\_\+\+Cloud.\+h\item 
+src/RAG\+\_\+\+Cloud.\+cpp\end{DoxyCompactItemize}

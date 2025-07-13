@@ -1,0 +1,15 @@
+<map id="PointCloudFeatures" name="PointCloudFeatures">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,374,142,400"/>
+<area shape="rect" id="Node000002" href="$class_root_features.html" title=" " alt="" coords="23,5,124,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,46,76,374,71,374,71,46"/>
+<area shape="rect" id="Node000004" href="$class_vertex.html" title=" " alt="" coords="96,131,155,157"/>
+<area shape="poly" id="edge8_Node000004_Node000002" title=" " alt="" coords="87,44,123,130,118,132,82,46"/>
+<area shape="rect" id="Node000003" href="$class_vertex___cloud.html" title=" " alt="" coords="90,277,190,303"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,317,84,375,80,372,121,314"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="130,172,137,253,141,277,136,277,132,254,125,173"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="165,127,177,132,182,144,179,153,171,159,149,160,149,155,169,154,174,150,177,144,173,136,163,132"/>
+<area shape="rect" id="Node000005" href="$class_edge.html" title=" " alt="" coords="232,277,283,303"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="129,172,137,213,145,234,158,251,189,267,232,280,230,285,187,272,154,255,141,236,132,215,124,173"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="253,262,248,236,235,212,218,193,197,178,155,158,157,153,200,174,221,189,240,208,253,234,258,261"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="300,280,307,283,310,291,301,300,284,302,283,296,299,295,305,290,303,287,298,285"/>
+</map>

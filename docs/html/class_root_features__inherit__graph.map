@@ -1,0 +1,15 @@
+<map id="RootFeatures" name="RootFeatures">
+<area shape="rect" id="Node000001" title=" " alt="" coords="259,5,360,31"/>
+<area shape="rect" id="Node000002" href="$class_blooming_tree_features.html" title=" " alt="" coords="5,79,158,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="257,39,121,81,120,76,255,34"/>
+<area shape="rect" id="Node000003" href="$class_image_features.html" title=" " alt="" coords="182,79,290,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="288,44,250,80,247,77,285,40"/>
+<area shape="rect" id="Node000006" href="$class_point_cloud_features.html" title=" " alt="" coords="315,79,451,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="334,40,372,77,369,80,331,44"/>
+<area shape="rect" id="Node000007" href="$class_rabbani_features.html" title=" " alt="" coords="475,79,595,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="363,34,497,76,496,81,361,39"/>
+<area shape="rect" id="Node000004" href="$class_h_s_w_o_features.html" title=" " alt="" coords="112,153,227,178"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="217,118,183,154,179,150,213,114"/>
+<area shape="rect" id="Node000005" href="$class_m_r_s_features.html" title=" " alt="" coords="250,153,353,178"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="259,114,292,150,289,154,255,118"/>
+</map>

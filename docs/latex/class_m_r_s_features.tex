@@ -1,0 +1,122 @@
+\doxysection{MRSFeatures Class Reference}
+\hypertarget{class_m_r_s_features}{}\label{class_m_r_s_features}\index{MRSFeatures@{MRSFeatures}}
+
+
+Inheritance diagram for MRSFeatures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_m_r_s_features__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for MRSFeatures\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{class_m_r_s_features__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_r_s_features_a4178b6b469444b5c4ebfb53927cb47f3}\label{class_m_r_s_features_a4178b6b469444b5c4ebfb53927cb47f3} 
+{\bfseries MRSFeatures} (int \texorpdfstring{$\ast$}{*}, double \texorpdfstring{$\ast$}{*}, int, int, int)
+\item 
+\Hypertarget{class_m_r_s_features_a564e3f89034588a6711497a3fd8c21fa}\label{class_m_r_s_features_a564e3f89034588a6711497a3fd8c21fa} 
+{\bfseries MRSFeatures} (double area, double mean, double std, double length, double color, int band\+\_\+num, double \texorpdfstring{$\ast$}{*}band\+\_\+weights, int top, int bottom, int left, int right, int box, double smooth, double compt)
+\item 
+void \mbox{\hyperlink{class_m_r_s_features_a97d5b4c520feb9e7ba3a791d3103730c}{Feature\+Info}} () override
+\item 
+\Hypertarget{class_m_r_s_features_ae9bd361c987ee26285f29b3bdb61e810}\label{class_m_r_s_features_ae9bd361c987ee26285f29b3bdb61e810} 
+void {\bfseries set\+\_\+feature} (int \texorpdfstring{$\ast$}{*}DNs, double \texorpdfstring{$\ast$}{*}args, int args\+\_\+size, int x, int y)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_image_features}{Image\+Features}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Image\+Features} (int band\+\_\+num)
+\item 
+{\bfseries Image\+Features} (int \texorpdfstring{$\ast$}{*}, int)
+\item 
+double {\bfseries Sum} (int \texorpdfstring{$\ast$}{*}, int)
+\item 
+double {\bfseries Mean} (int \texorpdfstring{$\ast$}{*}, int)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_m_r_s_features_a42ce4061f668642f4de4014385760be8}\label{class_m_r_s_features_a42ce4061f668642f4de4014385760be8} 
+double {\bfseries shape\+\_\+weight}
+\item 
+\Hypertarget{class_m_r_s_features_a6aeac518e7896fa82b268827c575a13e}\label{class_m_r_s_features_a6aeac518e7896fa82b268827c575a13e} 
+double {\bfseries compt\+\_\+weight}
+\item 
+\Hypertarget{class_m_r_s_features_a51b4133d179d7a564dd7270f6e331b44}\label{class_m_r_s_features_a51b4133d179d7a564dd7270f6e331b44} 
+double {\bfseries band\+\_\+weights} \mbox{[}3\mbox{]}
+\item 
+\Hypertarget{class_m_r_s_features_affda55d0b57c583d61b4b91f45c7d0da}\label{class_m_r_s_features_affda55d0b57c583d61b4b91f45c7d0da} 
+double {\bfseries color}
+\item 
+\Hypertarget{class_m_r_s_features_a7d7105d0bd5f68d0a1c8788715f5b025}\label{class_m_r_s_features_a7d7105d0bd5f68d0a1c8788715f5b025} 
+double {\bfseries length}
+\item 
+\Hypertarget{class_m_r_s_features_a257d7f0709506f51922ec0e0eb637dd9}\label{class_m_r_s_features_a257d7f0709506f51922ec0e0eb637dd9} 
+int {\bfseries top}
+\item 
+\Hypertarget{class_m_r_s_features_a66855e472d37c5b4bbc57b72c47251d9}\label{class_m_r_s_features_a66855e472d37c5b4bbc57b72c47251d9} 
+int {\bfseries bottom}
+\item 
+\Hypertarget{class_m_r_s_features_aacb95ea1b1bb535dc4837587701aa9eb}\label{class_m_r_s_features_aacb95ea1b1bb535dc4837587701aa9eb} 
+int {\bfseries left}
+\item 
+\Hypertarget{class_m_r_s_features_ad02c01b71a8eb5c8836b361abbaae40d}\label{class_m_r_s_features_ad02c01b71a8eb5c8836b361abbaae40d} 
+int {\bfseries right}
+\item 
+\Hypertarget{class_m_r_s_features_a4e9f83937fec05fdc6a9550d4b34d043}\label{class_m_r_s_features_a4e9f83937fec05fdc6a9550d4b34d043} 
+int {\bfseries box}
+\item 
+\Hypertarget{class_m_r_s_features_a174cc35ea12d4bda0bc5dc86ba8a7b57}\label{class_m_r_s_features_a174cc35ea12d4bda0bc5dc86ba8a7b57} 
+double {\bfseries smooth}
+\item 
+\Hypertarget{class_m_r_s_features_a6fa4b473cd3544a4ddac953ce4042e0e}\label{class_m_r_s_features_a6fa4b473cd3544a4ddac953ce4042e0e} 
+double {\bfseries compt}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_image_features}{Image\+Features}}}
+\begin{DoxyCompactItemize}
+\item 
+double {\bfseries area}
+\item 
+double {\bfseries mean}
+\item 
+double {\bfseries std}
+\item 
+double {\bfseries mean\+\_\+arry} \mbox{[}3\mbox{]}
+\item 
+double {\bfseries std\+\_\+arry} \mbox{[}3\mbox{]}
+\item 
+int {\bfseries band\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_m_r_s_features_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_m_r_s_features_a97d5b4c520feb9e7ba3a791d3103730c}\index{MRSFeatures@{MRSFeatures}!FeatureInfo@{FeatureInfo}}
+\index{FeatureInfo@{FeatureInfo}!MRSFeatures@{MRSFeatures}}
+\doxysubsubsection{\texorpdfstring{FeatureInfo()}{FeatureInfo()}}
+{\footnotesize\ttfamily \label{class_m_r_s_features_a97d5b4c520feb9e7ba3a791d3103730c} 
+void MRSFeatures\+::\+Feature\+Info (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_root_features}{Root\+Features}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Base\+Features.\+h\item 
+src/Base\+Features.\+cpp\end{DoxyCompactItemize}

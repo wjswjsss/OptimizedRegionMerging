@@ -1,0 +1,10 @@
+<map id="Edge" name="Edge">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,57,31"/>
+<area shape="poly" id="edge5_Node000001_Node000001" title=" " alt="" coords="74,6,80,11,83,19,75,30,57,32,57,26,72,25,78,18,76,14,71,11"/>
+<area shape="rect" id="Node000002" href="$class_vertex.html" title=" " alt="" coords="72,152,131,177"/>
+<area shape="poly" id="edge3_Node000002_Node000001" title=" " alt="" coords="26,46,24,72,29,97,39,113,52,127,81,149,78,153,49,131,35,116,25,99,19,72,21,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,137,88,97,70,56,47,33,51,30,75,54,93,96,101,136"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="135,145,151,150,158,164,154,176,145,182,132,183,119,180,120,175,133,178,143,177,150,172,153,165,148,154,134,150"/>
+<area shape="rect" id="Node000003" href="$class_root_features.html" title=" " alt="" coords="232,5,332,31"/>
+<area shape="poly" id="edge4_Node000002_Node000003" title=" " alt="" coords="257,43,118,153,115,149,254,38"/>
+</map>

@@ -1,0 +1,43 @@
+\doxysection{Edge.\+h}
+\hypertarget{_edge_8h_source}{}\label{_edge_8h_source}\index{include/Edge.h@{include/Edge.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{keyword}{enum\ class}\ State;}
+\DoxyCodeLine{00003\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vertex}{Vertex}};}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }Edge}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ Edge();}
+\DoxyCodeLine{00009\ \ \ \ \ Edge(\textcolor{keywordtype}{int},\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *);}
+\DoxyCodeLine{00010\ \ \ \ \ Edge(\textcolor{keywordtype}{int},\ \textcolor{keywordtype}{double},\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *,\ \mbox{\hyperlink{class_vertex}{Vertex}}\ *);}
+\DoxyCodeLine{00011\ \ \ \ \ \string~Edge();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ ID;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{int}\ shortest\_arc\_num;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ int\ type;}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ length;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{double}\ weight;}
+\DoxyCodeLine{00019\ \ \ \ \ State\ state;}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_vertex}{Vertex}}\ *left\_vertex;}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_vertex}{Vertex}}\ *right\_vertex;}
+\DoxyCodeLine{00022\ \ \ \ \ Edge\ *next\_edge\_in\_region;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_checked;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Edge*\ direct;}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_vertex}{Vertex}}\ *get\_other\_vertex(\mbox{\hyperlink{class_vertex}{Vertex}}\ *);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ GetWeight()\ =\ 0;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{bool}\ compareByValue(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ compareByAddress(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ compareByEnds(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ Edge\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00037\ \};}
+
+\end{DoxyCode}

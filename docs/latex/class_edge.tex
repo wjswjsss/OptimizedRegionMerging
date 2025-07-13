@@ -1,0 +1,94 @@
+\doxysection{Edge Class Reference}
+\hypertarget{class_edge}{}\label{class_edge}\index{Edge@{Edge}}
+
+
+Inheritance diagram for Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_edge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_edge_a38ee4b750e0df90c6d4264671eb546cf}\label{class_edge_a38ee4b750e0df90c6d4264671eb546cf} 
+{\bfseries Edge} (int, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_edge_a5d184a88f33f97b5fc92dcbd223ee641}\label{class_edge_a5d184a88f33f97b5fc92dcbd223ee641} 
+{\bfseries Edge} (int, double, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_edge_a2df003049de06af696879a1ab1f3883b}\label{class_edge_a2df003049de06af696879a1ab1f3883b} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+other\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_edge_a968a09d0ffbb3677d5bfb2ff210041f0}\label{class_edge_a968a09d0ffbb3677d5bfb2ff210041f0} 
+virtual double {\bfseries Get\+Weight} ()=0
+\item 
+\Hypertarget{class_edge_a829d0d57acb8f107847c47ee87e2abca}\label{class_edge_a829d0d57acb8f107847c47ee87e2abca} 
+bool {\bfseries compare\+By\+Value} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_a5a434f4d2aa93a6a4459b5a7bdada0c4}\label{class_edge_a5a434f4d2aa93a6a4459b5a7bdada0c4} 
+bool {\bfseries compare\+By\+Address} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_a8ef75bdf25f1e2661bbb50662cf9b4f6}\label{class_edge_a8ef75bdf25f1e2661bbb50662cf9b4f6} 
+bool {\bfseries compare\+By\+Ends} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_ab6a06c5da57efed1991960f61e870c8b}\label{class_edge_ab6a06c5da57efed1991960f61e870c8b} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_a8289a84d979069420b4ff73933bdedcd}\label{class_edge_a8289a84d979069420b4ff73933bdedcd} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_ab6c35dc1902b8eb155fb0194a2afcdb1}\label{class_edge_ab6c35dc1902b8eb155fb0194a2afcdb1} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+\Hypertarget{class_edge_a1828cc63e945ef1538a2ca69865c3cd1}\label{class_edge_a1828cc63e945ef1538a2ca69865c3cd1} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_edge_aad8bf6da79c1c5378e7eec46341d650a}\label{class_edge_aad8bf6da79c1c5378e7eec46341d650a} 
+int {\bfseries ID}
+\item 
+\Hypertarget{class_edge_a7f432ea5baa9b651b60a6a8ecca95db0}\label{class_edge_a7f432ea5baa9b651b60a6a8ecca95db0} 
+int {\bfseries shortest\+\_\+arc\+\_\+num}
+\item 
+\Hypertarget{class_edge_a06a34650ffa257c208244bb0a3f50166}\label{class_edge_a06a34650ffa257c208244bb0a3f50166} 
+int {\bfseries length}
+\item 
+\Hypertarget{class_edge_a6d0148402e635354c03a151c77fcbdd8}\label{class_edge_a6d0148402e635354c03a151c77fcbdd8} 
+double {\bfseries weight}
+\item 
+\Hypertarget{class_edge_a29e657e1c4f6e8956f56880590ed3a5f}\label{class_edge_a29e657e1c4f6e8956f56880590ed3a5f} 
+State {\bfseries state}
+\item 
+\Hypertarget{class_edge_a3a1832fd234370010b5ddb3294a1f23f}\label{class_edge_a3a1832fd234370010b5ddb3294a1f23f} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries left\+\_\+vertex}
+\item 
+\Hypertarget{class_edge_ae427e974138e1c79b49100c43930dbf7}\label{class_edge_ae427e974138e1c79b49100c43930dbf7} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries right\+\_\+vertex}
+\item 
+\Hypertarget{class_edge_a40e315750043d9e984553a5b26d37825}\label{class_edge_a40e315750043d9e984553a5b26d37825} 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+edge\+\_\+in\+\_\+region}
+\item 
+\Hypertarget{class_edge_a7b3c445a1543421a233f9a4c7b247551}\label{class_edge_a7b3c445a1543421a233f9a4c7b247551} 
+bool {\bfseries is\+\_\+checked}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Edge.\+h\item 
+src/Edge.\+cpp\end{DoxyCompactItemize}

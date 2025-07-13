@@ -1,0 +1,74 @@
+\doxysection{Region\+Adjacency\+Graph\texorpdfstring{$<$}{<} T1, T2, T\+\_\+\+Feature \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_region_adjacency_graph}{}\label{class_region_adjacency_graph}\index{RegionAdjacencyGraph$<$ T1, T2, T\_Feature $>$@{RegionAdjacencyGraph$<$ T1, T2, T\_Feature $>$}}
+
+
+Collaboration diagram for Region\+Adjacency\+Graph\texorpdfstring{$<$}{<} T1, T2, T\+\_\+\+Feature \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{class_region_adjacency_graph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_region_adjacency_graph_afd6320ead68148297dafc103cd50129c}\label{class_region_adjacency_graph_afd6320ead68148297dafc103cd50129c} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries Update\+Features}) (T\+\_\+\+Feature \texorpdfstring{$\ast$}{*}, T\+\_\+\+Feature \texorpdfstring{$\ast$}{*}, T2 \texorpdfstring{$\ast$}{*})
+\item 
+\Hypertarget{class_region_adjacency_graph_a8b6e292991d0d168f54d8306c092b5f9}\label{class_region_adjacency_graph_a8b6e292991d0d168f54d8306c092b5f9} 
+typedef double(\texorpdfstring{$\ast$}{*} {\bfseries Merging\+Criteria}) (T\+\_\+\+Feature \texorpdfstring{$\ast$}{*}, T\+\_\+\+Feature \texorpdfstring{$\ast$}{*}, T2 \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_region_adjacency_graph_a828c45d08eeb995b8908da79878918ad}\label{class_region_adjacency_graph_a828c45d08eeb995b8908da79878918ad} 
+{\bfseries Region\+Adjacency\+Graph} (int vertice\+\_\+num, int edge\+\_\+num, Update\+Features update\+\_\+features, Merging\+Criteria MC)
+\item 
+\Hypertarget{class_region_adjacency_graph_a80816f0cc2558ababfe0545e2f50cca2}\label{class_region_adjacency_graph_a80816f0cc2558ababfe0545e2f50cca2} 
+T1 \texorpdfstring{$\ast$}{*} {\bfseries run} (double threshold, Run\+Mode mode, int region\+\_\+size=2500)
+\item 
+\Hypertarget{class_region_adjacency_graph_a2cc1576c8dbe360c9588e9015d995257}\label{class_region_adjacency_graph_a2cc1576c8dbe360c9588e9015d995257} 
+void {\bfseries initial\+\_\+vertex\+\_\+color} ()
+\item 
+\Hypertarget{class_region_adjacency_graph_a7ae482fb1958df18f9b9793f9b40aa3a}\label{class_region_adjacency_graph_a7ae482fb1958df18f9b9793f9b40aa3a} 
+virtual void {\bfseries connect\+\_\+vertex\+\_\+and\+\_\+edge} ()=0
+\item 
+\Hypertarget{class_region_adjacency_graph_a43fcc9b5385f4741230bc742ff74ed78}\label{class_region_adjacency_graph_a43fcc9b5385f4741230bc742ff74ed78} 
+virtual void {\bfseries output} (const char \texorpdfstring{$\ast$}{*})=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_region_adjacency_graph_af5410a21a05ff10a1a40965eefd5d104}\label{class_region_adjacency_graph_af5410a21a05ff10a1a40965eefd5d104} 
+int {\bfseries test} = 0
+\item 
+\Hypertarget{class_region_adjacency_graph_a7727aa40231a8e46f6235a5647bc0b2f}\label{class_region_adjacency_graph_a7727aa40231a8e46f6235a5647bc0b2f} 
+Update\+Features {\bfseries update\+\_\+features\+\_\+func}
+\item 
+\Hypertarget{class_region_adjacency_graph_afdffbc406e49ad8570598b241e350707}\label{class_region_adjacency_graph_afdffbc406e49ad8570598b241e350707} 
+Merging\+Criteria {\bfseries merging\+\_\+criteria}
+\item 
+\Hypertarget{class_region_adjacency_graph_afe682327154e99a66b097b8e96e93751}\label{class_region_adjacency_graph_afe682327154e99a66b097b8e96e93751} 
+T1 \texorpdfstring{$\ast$}{*} {\bfseries vertice}
+\item 
+\Hypertarget{class_region_adjacency_graph_ae50e6b4f4866a8c06fa1f3f85f31529b}\label{class_region_adjacency_graph_ae50e6b4f4866a8c06fa1f3f85f31529b} 
+T2 \texorpdfstring{$\ast$}{*} {\bfseries edges}
+\item 
+\Hypertarget{class_region_adjacency_graph_a62f2e64c29faae527b1aad5cf705979e}\label{class_region_adjacency_graph_a62f2e64c29faae527b1aad5cf705979e} 
+\mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*} {\bfseries nng} = nullptr
+\item 
+\Hypertarget{class_region_adjacency_graph_ae5d5c4989465797e695607bd8a4ff32c}\label{class_region_adjacency_graph_ae5d5c4989465797e695607bd8a4ff32c} 
+std\+::priority\+\_\+queue$<$ T1 \texorpdfstring{$\ast$}{*}, std\+::vector$<$ T1 \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{struct_compare_a_pointers}{Compare\+APointers}} $>$ {\bfseries max\+\_\+priqueue}
+\item 
+\Hypertarget{class_region_adjacency_graph_a70b3e55cc8ca6bc9044fb3c83090c8d0}\label{class_region_adjacency_graph_a70b3e55cc8ca6bc9044fb3c83090c8d0} 
+int {\bfseries edge\+\_\+num}
+\item 
+\Hypertarget{class_region_adjacency_graph_a939822b727f81fc9030a8e356fb700e0}\label{class_region_adjacency_graph_a939822b727f81fc9030a8e356fb700e0} 
+int {\bfseries vertice\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/Region\+Adjacency\+Graph.\+h\end{DoxyCompactItemize}

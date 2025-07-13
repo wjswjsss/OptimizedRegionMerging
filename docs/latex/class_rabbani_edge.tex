@@ -1,0 +1,101 @@
+\doxysection{Rabbani\+Edge Class Reference}
+\hypertarget{class_rabbani_edge}{}\label{class_rabbani_edge}\index{RabbaniEdge@{RabbaniEdge}}
+
+
+Inheritance diagram for Rabbani\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_rabbani_edge__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Rabbani\+Edge\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rabbani_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rabbani_edge_a0719dc297f9dd9845cb79b9530ffce45}\label{class_rabbani_edge_a0719dc297f9dd9845cb79b9530ffce45} 
+{\bfseries Rabbani\+Edge} (int ID, \mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*}left\+\_\+vertex, \mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*}right\+\_\+vertex)
+\item 
+double \mbox{\hyperlink{class_rabbani_edge_ae8bf73ebecad96782f2d740f68eb0ebb}{Get\+Weight}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_edge}{Edge}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Edge} (int, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+{\bfseries Edge} (int, double, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+other\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+bool {\bfseries compare\+By\+Value} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries compare\+By\+Address} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries compare\+By\+Ends} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rabbani_edge_a80ab7f372e412f26a8c270364283fe2e}\label{class_rabbani_edge_a80ab7f372e412f26a8c270364283fe2e} 
+double {\bfseries angle\+\_\+diff} = 0.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_edge}{Edge}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries ID}
+\item 
+int {\bfseries shortest\+\_\+arc\+\_\+num}
+\item 
+int {\bfseries length}
+\item 
+double {\bfseries weight}
+\item 
+State {\bfseries state}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries left\+\_\+vertex}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries right\+\_\+vertex}
+\item 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+edge\+\_\+in\+\_\+region}
+\item 
+bool {\bfseries is\+\_\+checked}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_rabbani_edge_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rabbani_edge_ae8bf73ebecad96782f2d740f68eb0ebb}\index{RabbaniEdge@{RabbaniEdge}!GetWeight@{GetWeight}}
+\index{GetWeight@{GetWeight}!RabbaniEdge@{RabbaniEdge}}
+\doxysubsubsection{\texorpdfstring{GetWeight()}{GetWeight()}}
+{\footnotesize\ttfamily \label{class_rabbani_edge_ae8bf73ebecad96782f2d740f68eb0ebb} 
+double Rabbani\+Edge\+::\+Get\+Weight (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_edge}{Edge}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Rabbani\+Edge.\+h\item 
+src/Rabbani\+Edge.\+cpp\end{DoxyCompactItemize}

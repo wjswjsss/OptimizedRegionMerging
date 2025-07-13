@@ -1,0 +1,48 @@
+\doxysection{Rabbani\+RM3\+D.\+h}
+\hypertarget{_rabbani_r_m3_d_8h_source}{}\label{_rabbani_r_m3_d_8h_source}\index{include/RabbaniRM3D.h@{include/RabbaniRM3D.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ RabbaniRM3D.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Point\_Cloud.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \#include\ "{}RAG\_Cloud.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}RabbaniVertex.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}RabbaniEdge.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}RabbaniRAG.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}RAGCallbacks.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ }R\_GetFeat\ =\ RAGCallbacks::GetFeatures<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00012\ \textcolor{keyword}{using\ }R\_Update\ =\ RAGCallbacks::UpdateFeatures<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }R\_Merge\ =\ RAGCallbacks::MergingCriteria<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }RabbaniRM3D}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ feature\ and\ merging\ function\ types\ expect\ RabbaniEdge*}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//\ PointCloudNamespace::GetFeatures\ get\_features\_func;}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ PointCloudNamespace::UpdateFeatures\ update\_features\_func;}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ PointCloudNamespace::MergingCriteria\ merging\_criteria;}}
+\DoxyCodeLine{00022\ \ \ \ \ R\_Update\ update\_features\_func;}
+\DoxyCodeLine{00023\ \ \ \ \ R\_Merge\ merging\_criteria;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ RabbaniRM3D(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *cloud\_file);}
+\DoxyCodeLine{00026\ \ \ \ \ \string~RabbaniRM3D();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_point___cloud}{Point\_Cloud}}\ *cloud;}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_rabbani_r_a_g}{RabbaniRAG}}\ *rag;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ run(\textcolor{keywordtype}{double}\ scale\_parameter,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ search\_radius\ =\ 0.1,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ region\_size\ =\ 2500,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ RunMode\ mode\ =\ RunMode::None);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ assignment\_org\_ID(\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *root);}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ assignment\_value\_to\_org\_vertex(\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *root);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ check\_num(\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *root);}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ output(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *out\_file);}
+\DoxyCodeLine{00042\ \};}
+
+\end{DoxyCode}

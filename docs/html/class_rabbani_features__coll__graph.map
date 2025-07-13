@@ -1,0 +1,15 @@
+<map id="RabbaniFeatures" name="RabbaniFeatures">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,374,126,400"/>
+<area shape="rect" id="Node000002" href="$class_root_features.html" title=" " alt="" coords="15,5,116,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="68,46,68,374,63,374,63,46"/>
+<area shape="rect" id="Node000004" href="$class_vertex.html" title=" " alt="" coords="92,131,151,157"/>
+<area shape="poly" id="edge8_Node000004_Node000002" title=" " alt="" coords="79,44,118,130,114,132,75,46"/>
+<area shape="rect" id="Node000003" href="$class_rabbani_vertex.html" title=" " alt="" coords="81,277,188,303"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="119,317,77,375,72,372,115,314"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="126,172,133,253,136,277,131,277,128,254,121,173"/>
+<area shape="poly" id="edge4_Node000004_Node000004" title=" " alt="" coords="161,127,173,132,178,144,175,153,167,159,145,160,145,155,165,154,170,150,173,144,169,136,159,132"/>
+<area shape="rect" id="Node000005" href="$class_edge.html" title=" " alt="" coords="229,277,280,303"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="125,172,133,213,141,234,154,251,185,267,229,280,228,285,183,272,150,255,137,236,128,215,120,173"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="250,262,244,236,231,212,214,193,193,179,150,158,153,153,196,174,217,189,236,208,249,234,255,261"/>
+<area shape="poly" id="edge7_Node000005_Node000005" title=" " alt="" coords="297,280,304,283,307,291,299,300,281,302,281,296,296,295,302,290,300,287,295,285"/>
+</map>

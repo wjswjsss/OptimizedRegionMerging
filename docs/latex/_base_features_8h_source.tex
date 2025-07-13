@@ -1,0 +1,179 @@
+\doxysection{Base\+Features.\+h}
+\hypertarget{_base_features_8h_source}{}\label{_base_features_8h_source}\index{include/BaseFeatures.h@{include/BaseFeatures.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <boost/multiprecision/cpp\_dec\_float.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ \#include\ "{}RabbaniVertex.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ \textcolor{keyword}{using\ namespace\ }boost::multiprecision;}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }RootFeatures}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ RootFeatures();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ FeatureInfo()\ =\ 0;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ {\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}麯{\ucr}{\ucr}}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~RootFeatures()\ \{\}\ \textcolor{comment}{//\ {\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}{\ucr}}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }ImageFeatures\ :\ RootFeatures}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ area;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ mean;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ std;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ mean\_arry[3];}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ std\_arry[3];}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ band\_num;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ ImageFeatures();}
+\DoxyCodeLine{00034\ \ \ \ \ ImageFeatures(\textcolor{keywordtype}{int}\ band\_num);}
+\DoxyCodeLine{00035\ \ \ \ \ ImageFeatures(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~ImageFeatures()\ \{\};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ Sum(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ Mean(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }HSWOFeatures\ :\ \textcolor{keyword}{public}\ ImageFeatures}
+\DoxyCodeLine{00042\ \{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ HSWOFeatures(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00045\ \ \ \ \ HSWOFeatures(\textcolor{keywordtype}{double},\ \textcolor{keywordtype}{double},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00046\ \ \ \ \ \string~HSWOFeatures();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ FeatureInfo()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }MRSFeatures\ :\ \textcolor{keyword}{public}\ ImageFeatures}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ MRSFeatures();}
+\DoxyCodeLine{00054\ \ \ \ \ MRSFeatures(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{double}\ *,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00055\ \ \ \ \ MRSFeatures(}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ area,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mean,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ std,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ length,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ color,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ band\_num,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ *band\_weights,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ top,\ \textcolor{keywordtype}{int}\ bottom,\ \textcolor{keywordtype}{int}\ left,\ \textcolor{keywordtype}{int}\ right,\ \textcolor{keywordtype}{int}\ box,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ smooth,\ \textcolor{keywordtype}{double}\ compt);}
+\DoxyCodeLine{00065\ \ \ \ \ \string~MRSFeatures();}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ FeatureInfo()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_feature(\textcolor{keywordtype}{int}\ *DNs,\ \textcolor{keywordtype}{double}\ *args,\ \textcolor{keywordtype}{int}\ args\_size,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ shape\_weight,\ compt\_weight;}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ band\_weights[3];}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{double}\ color;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{double}\ length;}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ top,\ bottom,\ left,\ right;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ box;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{double}\ smooth,\ compt;}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{class\ }PointCloudFeatures\ :\ RootFeatures}
+\DoxyCodeLine{00080\ \{}
+\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ PointCloudFeatures();}
+\DoxyCodeLine{00083\ \ \ \ \ \string~PointCloudFeatures();}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_feature(\mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *v,\ \textcolor{keywordtype}{int}\ N,\ \textcolor{keywordtype}{double}\ E\_Si,\ \textcolor{keywordtype}{double}\ alpha,\ \textcolor{keywordtype}{double}\ x\_bar,\ \textcolor{keywordtype}{double}\ y\_bar,\ \textcolor{keywordtype}{double}\ z\_bar);}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_vertex___cloud}{Vertex\_Cloud}}\ *highest\_v;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ N;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{double}\ E\_Si;}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{double}\ alpha;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ x\_bar;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{double}\ y\_bar;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{double}\ z\_bar;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ FeatureInfo()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{class\ }BloomingTreeFeatures\ :\ RootFeatures}
+\DoxyCodeLine{00096\ \{}
+\DoxyCodeLine{00097\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00098\ \ \ \ \ BloomingTreeFeatures();}
+\DoxyCodeLine{00099\ \ \ \ \ \string~BloomingTreeFeatures();}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_feature(\textcolor{keywordtype}{int}\ mass,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ G,}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ p,}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ parallax,}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ ra,}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ dec,}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ pmra,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ pmdec,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cpp\_dec\_float\_50\ phot\_g\_mean\_mag);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ mass;}
+\DoxyCodeLine{00112\ \ \ \ \ cpp\_dec\_float\_50\ G;\ \textcolor{comment}{//\ gravitational\ constant}}
+\DoxyCodeLine{00113\ \ \ \ \ cpp\_dec\_float\_50\ p;\ \textcolor{comment}{//\ portion}}
+\DoxyCodeLine{00114\ \ \ \ \ cpp\_dec\_float\_50\ parallax;}
+\DoxyCodeLine{00115\ \ \ \ \ cpp\_dec\_float\_50\ ra;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ right\ ascension}}
+\DoxyCodeLine{00116\ \ \ \ \ cpp\_dec\_float\_50\ dec;\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ declination}}
+\DoxyCodeLine{00117\ \ \ \ \ cpp\_dec\_float\_50\ pmra;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ proper\ motion\ in\ right\ ascension}}
+\DoxyCodeLine{00118\ \ \ \ \ cpp\_dec\_float\_50\ pmdec;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ proper\ motion\ in\ declination}}
+\DoxyCodeLine{00119\ \ \ \ \ cpp\_dec\_float\_50\ phot\_g\_mean\_mag;\ \textcolor{comment}{//\ light\ degree}}
+\DoxyCodeLine{00120\ \ \ \ \ cpp\_dec\_float\_50\ r;}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ FeatureInfo()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00123\ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{comment}{//\ +\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ +}}
+\DoxyCodeLine{00126\ \textcolor{comment}{//\ |\ Creating\ the\ Rabbani\ features\ |}}
+\DoxyCodeLine{00127\ \textcolor{comment}{//\ +\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ +}}
+\DoxyCodeLine{00128\ \textcolor{keyword}{class\ }RabbaniFeatures\ :\ \textcolor{keyword}{public}\ RootFeatures}
+\DoxyCodeLine{00129\ \{}
+\DoxyCodeLine{00130\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00131\ \ \ \ \ RabbaniFeatures()\ :\ highest\_v(\textcolor{keyword}{nullptr}),}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\_bar(0),}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\_bar(0),}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ z\_bar(0),}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size(0),}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normal(Eigen::Vector3d::Zero())}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \string~RabbaniFeatures()\ \{\}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{comment}{//\ call\ this\ when\ you\ first\ create\ a\ single-\/point\ region}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_feature(\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *v,}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ x\_bar\_,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\_bar\_,}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\_bar\_,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Eigen::Vector3d\ \&normal\_)}
+\DoxyCodeLine{00148\ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ highest\_v\ =\ v;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ x\_bar\ =\ x\_bar\_;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ y\_bar\ =\ y\_bar\_;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ z\_bar\ =\ z\_bar\_;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ normal\ =\ normal\_;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ size\ =\ 1;\ \textcolor{comment}{//\ start\ with\ ONE\ point\ per\ Cluster.}}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ Eigen::Vector3d\ normal;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *highest\_v;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ int\ N;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ number\ of\ points\ in\ region}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{comment}{//\ double\ E\_Si;\ \ \ \ \ \ \ \ \ \ \ \ \ //\ internal\ energy}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ double\ alpha;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ user‐supplied}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{double}\ x\_bar,\ y\_bar,\ z\_bar;\ \textcolor{comment}{//\ centroid}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ FeatureInfo()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00168\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Rabbani\ Feature:\(\backslash\)n"{}}}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ centroid=("{}}\ <<\ x\_bar\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ y\_bar\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ z\_bar\ <<\ \textcolor{stringliteral}{"{})\(\backslash\)n"{}}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ normal=("{}}\ <<\ normal.transpose()\ <<\ \textcolor{stringliteral}{"{})\(\backslash\)n"{}};}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \};}
+
+\end{DoxyCode}

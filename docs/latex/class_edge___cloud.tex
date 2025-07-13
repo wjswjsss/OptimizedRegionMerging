@@ -1,0 +1,104 @@
+\doxysection{Edge\+\_\+\+Cloud Class Reference}
+\hypertarget{class_edge___cloud}{}\label{class_edge___cloud}\index{Edge\_Cloud@{Edge\_Cloud}}
+
+
+Inheritance diagram for Edge\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{class_edge___cloud__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Edge\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_edge___cloud__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_edge___cloud_a06ab9b84a415fa0d44fd8d1e60515fd1}\label{class_edge___cloud_a06ab9b84a415fa0d44fd8d1e60515fd1} 
+{\bfseries Edge\+\_\+\+Cloud} (int ID, \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}left\+\_\+vertex, \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}right\+\_\+vertex)
+\item 
+\Hypertarget{class_edge___cloud_a4166352002a1a2ff9216322591d7c96e}\label{class_edge___cloud_a4166352002a1a2ff9216322591d7c96e} 
+{\bfseries Edge\+\_\+\+Cloud} (int ID, double weight, \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}left\+\_\+vertex, \mbox{\hyperlink{class_vertex___cloud}{Vertex\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}right\+\_\+vertex)
+\item 
+double \mbox{\hyperlink{class_edge___cloud_a748cfb1397728ea1c5c756fd8adbdb83}{Get\+Weight}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_edge}{Edge}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Edge} (int, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+{\bfseries Edge} (int, double, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+other\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*})
+\item 
+bool {\bfseries compare\+By\+Value} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries compare\+By\+Address} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries compare\+By\+Ends} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\item 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{class_edge}{Edge}} \&other) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_edge___cloud_a661197bb8161fb79698a8e516065dc26}\label{class_edge___cloud_a661197bb8161fb79698a8e516065dc26} 
+double {\bfseries E\+\_\+\+Sij} = 0.\+0
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_edge}{Edge}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries ID}
+\item 
+int {\bfseries shortest\+\_\+arc\+\_\+num}
+\item 
+int {\bfseries length}
+\item 
+double {\bfseries weight}
+\item 
+State {\bfseries state}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries left\+\_\+vertex}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries right\+\_\+vertex}
+\item 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+edge\+\_\+in\+\_\+region}
+\item 
+bool {\bfseries is\+\_\+checked}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_edge___cloud_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_edge___cloud_a748cfb1397728ea1c5c756fd8adbdb83}\index{Edge\_Cloud@{Edge\_Cloud}!GetWeight@{GetWeight}}
+\index{GetWeight@{GetWeight}!Edge\_Cloud@{Edge\_Cloud}}
+\doxysubsubsection{\texorpdfstring{GetWeight()}{GetWeight()}}
+{\footnotesize\ttfamily \label{class_edge___cloud_a748cfb1397728ea1c5c756fd8adbdb83} 
+double Edge\+\_\+\+Cloud\+::\+Get\+Weight (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_edge}{Edge}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Edge\+\_\+\+Cloud.\+h\item 
+src/Edge\+\_\+\+Cloud.\+cpp\end{DoxyCompactItemize}

@@ -213,6 +213,7 @@ void RabbaniRAG::initial_edges(int edge_count)
         if (e->left_vertex && e->right_vertex)
         {
             double angle = merging_criteria(A, B, e);
+            e->weight = angle; // store the angle as weight
             // store it in your edge’s field
             e->angle_diff = angle;
         }

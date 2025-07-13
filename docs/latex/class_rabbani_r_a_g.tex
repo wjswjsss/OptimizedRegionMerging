@@ -1,0 +1,92 @@
+\doxysection{Rabbani\+RAG Class Reference}
+\hypertarget{class_rabbani_r_a_g}{}\label{class_rabbani_r_a_g}\index{RabbaniRAG@{RabbaniRAG}}
+
+
+Inheritance diagram for Rabbani\+RAG\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_rabbani_r_a_g__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Rabbani\+RAG\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_rabbani_r_a_g__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_rabbani_r_a_g_a4d3b21cd188fec8ba23a4f89d4673a5e}\label{class_rabbani_r_a_g_a4d3b21cd188fec8ba23a4f89d4673a5e} 
+{\bfseries Rabbani\+RAG} (\mbox{\hyperlink{class_point___cloud}{Point\+\_\+\+Cloud}} \texorpdfstring{$\ast$}{*}pc, double search\+\_\+radius, R\+\_\+\+Update update\+\_\+features, R\+\_\+\+Merge mc)
+\item 
+\Hypertarget{class_rabbani_r_a_g_ac2261e59dfbec8fcf06bc1cc24484b89}\label{class_rabbani_r_a_g_ac2261e59dfbec8fcf06bc1cc24484b89} 
+{\bfseries Rabbani\+RAG} (\mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*}root, int size, double search\+\_\+radius, R\+\_\+\+Update update\+\_\+features, R\+\_\+\+Merge mc)
+\item 
+void \mbox{\hyperlink{class_rabbani_r_a_g_aa5a9c3a91c20505e4dcdc0515fc3c860}{output}} (const char \texorpdfstring{$\ast$}{*}output\+\_\+path) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Rabbani\+Vertex, Rabbani\+Edge, Rabbani\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Region\+Adjacency\+Graph} (int vertice\+\_\+num, int edge\+\_\+num, Update\+Features update\+\_\+features, Merging\+Criteria MC)
+\item 
+\mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries run} (double threshold, Run\+Mode mode, int region\+\_\+size=2500)
+\item 
+void {\bfseries initial\+\_\+vertex\+\_\+color} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Public Types inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Rabbani\+Vertex, Rabbani\+Edge, Rabbani\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries Update\+Features}) (\mbox{\hyperlink{class_rabbani_features}{Rabbani\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_rabbani_features}{Rabbani\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_rabbani_edge}{Rabbani\+Edge}} \texorpdfstring{$\ast$}{*})
+\item 
+typedef double(\texorpdfstring{$\ast$}{*} {\bfseries Merging\+Criteria}) (\mbox{\hyperlink{class_rabbani_features}{Rabbani\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_rabbani_features}{Rabbani\+Features}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{class_rabbani_edge}{Rabbani\+Edge}} \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Rabbani\+Vertex, Rabbani\+Edge, Rabbani\+Features $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries test}
+\item 
+Update\+Features {\bfseries update\+\_\+features\+\_\+func}
+\item 
+Merging\+Criteria {\bfseries merging\+\_\+criteria}
+\item 
+\mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries vertice}
+\item 
+\mbox{\hyperlink{class_rabbani_edge}{Rabbani\+Edge}} \texorpdfstring{$\ast$}{*} {\bfseries edges}
+\item 
+\mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*} {\bfseries nng}
+\item 
+std\+::priority\+\_\+queue$<$ \mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*}, std\+::vector$<$ \mbox{\hyperlink{class_rabbani_vertex}{Rabbani\+Vertex}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{struct_compare_a_pointers}{Compare\+APointers}} $>$ {\bfseries max\+\_\+priqueue}
+\item 
+int {\bfseries edge\+\_\+num}
+\item 
+int {\bfseries vertice\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_rabbani_r_a_g_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_rabbani_r_a_g_aa5a9c3a91c20505e4dcdc0515fc3c860}\index{RabbaniRAG@{RabbaniRAG}!output@{output}}
+\index{output@{output}!RabbaniRAG@{RabbaniRAG}}
+\doxysubsubsection{\texorpdfstring{output()}{output()}}
+{\footnotesize\ttfamily \label{class_rabbani_r_a_g_aa5a9c3a91c20505e4dcdc0515fc3c860} 
+void Rabbani\+RAG\+::output (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{output\+\_\+path}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_region_adjacency_graph}{Region\+Adjacency\+Graph$<$ Rabbani\+Vertex, Rabbani\+Edge, Rabbani\+Features $>$}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Rabbani\+RAG.\+h\item 
+src/Rabbani\+RAG.\+cpp\end{DoxyCompactItemize}

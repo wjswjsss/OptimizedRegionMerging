@@ -39,6 +39,10 @@
 #include <chrono>
 #include <thread>
 
+#include <fstream>
+#include <iostream>
+#include <cmath>
+#include <cstdint>
 #include "cpl_conv.h"
 #define RED_TEXT "\033[31m"
 #define GREEN_TEXT "\033[32m"
@@ -48,16 +52,56 @@ using namespace std;
 void OpenLAS();
 void OpenPCD();
 void OpenLASRabbani();
+void analyzeLAS();
+void centerLAS(const char *inFile, const char *outFile);
 
 int main()
 {
-
+	analyzeLAS();
 	OpenLASRabbani();
 	// OpenPCD();
 
 	std::cout << "END" << std::endl;
 }
-
+void printMode(RunMode runMode)
+{
+	switch (runMode)
+	{
+	case RunMode::None:
+		std::cout << "RunMode: None" << std::endl;
+		break;
+	case RunMode::Region:
+		std::cout << "RunMode: Region" << std::endl;
+		break;
+	case RunMode::Pruning:
+		std::cout << "RunMode: Pruning" << std::endl;
+		break;
+	case RunMode::Cycle:
+		std::cout << "RunMode: Cycle" << std::endl;
+		break;
+	case RunMode::Region_Pruning:
+		std::cout << "RunMode: Region_Pruning" << std::endl;
+		break;
+	case RunMode::Region_Cycle:
+		std::cout << "RunMode: Region_Cycle" << std::endl;
+		break;
+	case RunMode::Pruning_Cycle:
+		std::cout << "RunMode: Pruning_Cycle" << std::endl;
+		break;
+	case RunMode::Region_Pruning_Cycle:
+		std::cout << "RunMode: Region_Pruning_Cycle" << std::endl;
+		break;
+	case RunMode::Region_Pruning_Cycle_MultiCores:
+		std::cout << "RunMode: Region_Pruning_Cycle_MultiCores" << std::endl;
+		break;
+	case RunMode::Region_Pruning_Cycle_GPU:
+		std::cout << "RunMode: Region_Pruning_Cycle_GPU" << std::endl;
+		break;
+	default:
+		std::cout << "RunMode: Unknown" << std::endl;
+		break;
+	}
+}
 // laslib
 void OpenLAS()
 {
@@ -96,8 +140,24 @@ void OpenLASRabbani()
 {
 	std::cout << RED_TEXT << "U r running the Rabbani Criteria based Region Merging Algo." << RESET_COLOR
 			  << std::endl;
+
+	const char *inputPath = "../../../pointCloudData/output.las";
+	const char *outputPath = "../../../pointCloudData/outputCentered.las";
+
+	try
+	{
+		std::cout << "Centering point cloud...\n";
+		centerLAS(inputPath, outputPath);
+		std::cout << "Point cloud centered and written to " << outputPath << "\n";
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << "Error: " << e.what() << "\n";
+		exit(1);
+	}
+
 	// std::string path =      "E:\\01paper\\mypaper7_clustering_acceleation\\data\\pointcloud\\tree\\plot_1_annotated.las";
-	std::string path = "../../../pointCloudData/output.las"; // plot_1_annotated_tree_160k
+	std::string path = "../../../pointCloudData/outputCentered.las"; // plot_1_annotated_tree_160k
 	// std::string path = "E:\\01paper\\mypaper7_clustering_acceleation\\data\\pointcloud\\tree\\plot_1_annotated_tree_160k.las";//
 
 	std::string save_path = "./";
@@ -121,8 +181,9 @@ void OpenLASRabbani()
 	// | Calling Rabbani criteria driven Region Merging Class run method |
 	// + --------------------------------------------------------------- +
 	std::cout << RED_TEXT << "[Call] RabbaniRM3D::run" << RESET_COLOR << std::endl;
-
-	rabbani->run(scale_parameter, search_radius, region_size, RunMode::Region_Pruning_Cycle_MultiCores);
+	RunMode run_mode = RunMode::Pruning_Cycle;
+	printMode(run_mode);
+	rabbani->run(scale_parameter, search_radius, region_size, run_mode);
 
 	auto end_time = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
@@ -173,6 +234,201 @@ void OpenPCD()
 	}
 }
 
+// Helper to compute percentile from a sorted vector
+double percentile(const std::vector<double> &data, double p)
+{
+	if (data.empty())
+		return 0.0;
+	double idx = p / 100.0 * (data.size() - 1);
+	size_t lo = static_cast<size_t>(std::floor(idx));
+	size_t hi = static_cast<size_t>(std::ceil(idx));
+	if (hi == lo)
+		return data[lo];
+	double weight = idx - lo;
+	return data[lo] * (1.0 - weight) + data[hi] * weight;
+}
+
+void analyzeLAS()
+{
+	// 1. hard-coded paths
+	const char *lasFilePath = "../../../pointCloudData/output.las";
+
+	LASreadOpener lasreadopener;
+	lasreadopener.set_file_name(lasFilePath);
+	lasreadopener.parse(0, nullptr);
+	LASreader *reader = lasreadopener.open();
+	if (!reader)
+	{
+		std::cerr << "ERROR: could not open LAS file: "
+				  << lasFilePath << std::endl;
+		return;
+	}
+
+	std::uint64_t count = 0;
+	double sumX = 0, sumY = 0, sumZ = 0;
+	double sumX2 = 0, sumY2 = 0, sumZ2 = 0;
+
+	std::vector<double> xs, ys, zs;
+	xs.reserve(1000000);
+	ys.reserve(1000000);
+	zs.reserve(1000000);
+
+	while (reader->read_point())
+	{
+		double x = reader->get_x();
+		double y = reader->get_y();
+		double z = reader->get_z();
+
+		sumX += x;
+		sumY += y;
+		sumZ += z;
+		sumX2 += x * x;
+		sumY2 += y * y;
+		sumZ2 += z * z;
+		xs.push_back(x);
+		ys.push_back(y);
+		zs.push_back(z);
+		++count;
+	}
+
+	reader->close();
+	delete reader;
+
+	if (count == 0)
+	{
+		std::cerr << "No points found in the LAS file.\n";
+		return;
+	}
+
+	// Sort for min/max/percentiles
+	std::sort(xs.begin(), xs.end());
+	std::sort(ys.begin(), ys.end());
+	std::sort(zs.begin(), zs.end());
+
+	double meanX = sumX / count;
+	double meanY = sumY / count;
+	double meanZ = sumZ / count;
+
+	double varX = sumX2 / count - meanX * meanX;
+	double varY = sumY2 / count - meanY * meanY;
+	double varZ = sumZ2 / count - meanZ * meanZ;
+
+	double stdX = std::sqrt(varX);
+	double stdY = std::sqrt(varY);
+	double stdZ = std::sqrt(varZ);
+
+	// Min / Max
+	double minX = xs.front(), maxX = xs.back();
+	double minY = ys.front(), maxY = ys.back();
+	double minZ = zs.front(), maxZ = zs.back();
+
+	// Percentiles to compute
+	const double percentiles[] = {1, 5, 25, 50, 75, 95, 99};
+
+	// Output
+	std::cout << "Point count: " << count << "\n\n";
+
+	std::cout << "Axis Statistics:\n";
+	auto printAxis = [&](const char axis,
+						 double minv, double maxv,
+						 double meanv, double stdv,
+						 const std::vector<double> &data)
+	{
+		std::cout << axis << "-axis:\n"
+				  << "  Min = " << minv << "\n"
+				  << "  Max = " << maxv << "\n"
+				  << "  Mean = " << meanv << "\n"
+				  << "  Std  = " << stdv << "\n";
+
+		std::cout << "  Percentiles:\n";
+		for (double p : percentiles)
+		{
+			double val = percentile(data, p);
+			std::cout << "    " << p << "% → " << val << "\n";
+		}
+		std::cout << "\n";
+	};
+
+	printAxis('X', minX, maxX, meanX, stdX, xs);
+	printAxis('Y', minY, maxY, meanY, stdY, ys);
+	printAxis('Z', minZ, maxZ, meanZ, stdZ, zs);
+}
+
+/// Centers all points in `inFile` around the median of each axis
+/// and writes the result to `outFile`.
+void centerLAS(const char *inFile, const char *outFile)
+{
+	// --- FIRST PASS: collect coordinates and header ---
+	LASreadOpener readerOpener;
+	readerOpener.set_file_name(inFile);
+	readerOpener.parse(0, nullptr);
+	LASreader *reader1 = readerOpener.open();
+	if (!reader1)
+	{
+		throw std::runtime_error(std::string("Cannot open input LAS: ") + inFile);
+	}
+
+	std::vector<double> xs, ys, zs;
+	xs.reserve(1000000);
+	ys.reserve(1000000);
+	zs.reserve(1000000);
+
+	while (reader1->read_point())
+	{
+		xs.push_back(reader1->get_x());
+		ys.push_back(reader1->get_y());
+		zs.push_back(reader1->get_z());
+	}
+
+	LASheader header = reader1->header; // copy for writer
+	reader1->close();
+	delete reader1;
+
+	if (xs.empty())
+	{
+		throw std::runtime_error("Input LAS contains no points.");
+	}
+
+	// sort to find median
+	auto find_median = [&](std::vector<double> &v)
+	{
+		std::sort(v.begin(), v.end());
+		return v[v.size() / 2];
+	};
+	double medX = find_median(xs);
+	double medY = find_median(ys);
+	double medZ = find_median(zs);
+
+	// --- SECOND PASS: subtract medians and write out ---
+	LASreader *reader2 = readerOpener.open(); // reopen same file
+	LASwriteOpener writerOpener;
+	writerOpener.set_file_name(outFile);
+	LASwriter *writer = writerOpener.open(&header);
+	if (!writer)
+	{
+		reader2->close();
+		delete reader2;
+		throw std::runtime_error(std::string("Cannot open output LAS: ") + outFile);
+	}
+
+	while (reader2->read_point())
+	{
+		LASpoint p = reader2->point;
+		double cx = p.get_x() - medX;
+		double cy = p.get_y() - medY;
+		double cz = p.get_z() - medZ;
+
+		p.set_X(cx);
+		p.set_Y(cy);
+		p.set_Z(cz);
+		writer->write_point(&p);
+	}
+
+	writer->close();
+	delete writer;
+	reader2->close();
+	delete reader2;
+}
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
 

@@ -1,0 +1,70 @@
+\doxysection{Vertex.\+h}
+\hypertarget{_vertex_8h_source}{}\label{_vertex_8h_source}\index{include/Vertex.h@{include/Vertex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Edge.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}NNG.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_root_features}{RootFeatures}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum\ class}\ State}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Activate,}
+\DoxyCodeLine{00014\ \ \ \ \ Suspend,}
+\DoxyCodeLine{00015\ \ \ \ \ Freeze}
+\DoxyCodeLine{00016\ \};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{//\ template\ <typename\ T>}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }Vertex}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ Vertex();}
+\DoxyCodeLine{00023\ \ \ \ \ Vertex(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ connection\_degree,\ \textcolor{keywordtype}{double}\ radius);}
+\DoxyCodeLine{00024\ \ \ \ \ Vertex(\textcolor{keywordtype}{int}\ ID,\ \mbox{\hyperlink{class_root_features}{RootFeatures}}\ *features);}
+\DoxyCodeLine{00025\ \ \ \ \ Vertex(\textcolor{keyword}{const}\ Vertex\ \&other);}
+\DoxyCodeLine{00026\ \ \ \ \ \string~Vertex();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ push(\mbox{\hyperlink{class_edge}{Edge}}\ *ptr\_e);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ push\_range(\textcolor{keywordtype}{int}\ *first,\ \textcolor{keywordtype}{int}\ *last);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_next\_vertex(Vertex\ *ptr\_next);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ remove\_edge(\textcolor{keywordtype}{int}\ edge\_id);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ change\_direct(\mbox{\hyperlink{class_edge}{Edge}}\ *new\_direct,\ \mbox{\hyperlink{class_n_n_g}{NNG}}\ *nng);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ set\_position\_dimention(\textcolor{keywordtype}{int}\ dimention);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ append\_sign(\textcolor{keywordtype}{bool}\ sign);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ get\_sign();}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ reset();}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ Vertex\ \&other)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ Vertex\ \&operator=(\textcolor{keyword}{const}\ Vertex\ \&other);}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ GetID()\ =\ 0;}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{int}\ ID;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ position\_dimension;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ *positions;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ connection\_degree;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ color;}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ size;}
+\DoxyCodeLine{00050\ \ \ \ \ State\ state;}
+\DoxyCodeLine{00051\ \ \ \ \ Vertex\ *parent;}
+\DoxyCodeLine{00052\ \ \ \ \ Vertex\ *next;}
+\DoxyCodeLine{00053\ \ \ \ \ Vertex\ *next\_in\_region;}
+\DoxyCodeLine{00054\ \ \ \ \ Vertex\ *last;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_visited;}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_built\_tree\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<int>\ edges;}
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<int>\ merged\_vertice;}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_edge}{Edge}}\ *direct;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_root_features}{RootFeatures}}\ *ptr\_features;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_sign;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{int}\ bits\_num;}
+\DoxyCodeLine{00064\ \};}
+
+\end{DoxyCode}

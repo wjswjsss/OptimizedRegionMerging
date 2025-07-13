@@ -53,6 +53,9 @@
         "regex": "cpp",
         "set": "cpp",
         "span": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "shared_mutex": "cpp"
     }
 }

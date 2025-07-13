@@ -1,0 +1,27 @@
+\doxysection{RAGCallbacks.\+h}
+\hypertarget{_r_a_g_callbacks_8h_source}{}\label{_r_a_g_callbacks_8h_source}\index{include/RAGCallbacks.h@{include/RAGCallbacks.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ Forward‐declares}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_root_features}{RootFeatures}};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_edge}{Edge}};}
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_vertex}{Vertex}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ A\ generic\ callbacks\ namespace,\ templated\ by\ (FeatureType,\ EdgeType,\ VertexType)}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }RAGCallbacks}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Feature,\ \textcolor{keyword}{typename}\ EdgeT,\ \textcolor{keyword}{typename}\ VertexT>}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{using\ }GetFeatures\ =\ Feature\ *(*)(\textcolor{keywordtype}{int}\ *,\ \textcolor{keywordtype}{double}\ *,\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int},\ \textcolor{keywordtype}{int});}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Feature,\ \textcolor{keyword}{typename}\ EdgeT,\ \textcolor{keyword}{typename}\ VertexT>}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{using\ }UpdateFeatures\ =\ void\ (*)(Feature\ *,\ Feature\ *,\ EdgeT\ *);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Feature,\ \textcolor{keyword}{typename}\ EdgeT,\ \textcolor{keyword}{typename}\ VertexT>}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{using\ }MergingCriteria\ =\ double\ (*)(Feature\ *,\ Feature\ *,\ EdgeT\ *);}
+\DoxyCodeLine{00021\ \}}
+
+\end{DoxyCode}

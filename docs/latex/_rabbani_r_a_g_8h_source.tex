@@ -1,0 +1,61 @@
+\doxysection{Rabbani\+RAG.\+h}
+\hypertarget{_rabbani_r_a_g_8h_source}{}\label{_rabbani_r_a_g_8h_source}\index{include/RabbaniRAG.h@{include/RabbaniRAG.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ RabbaniRAG.h}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Point\_Cloud.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}RabbaniVertex.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}RabbaniEdge.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}BaseFeatures.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}RegionAdjacencyGraph.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <pcl/point\_cloud.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <pcl/search/kdtree.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}RAGCallbacks.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{using\ }R\_GetFeat\ =\ RAGCallbacks::GetFeatures<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{using\ }R\_Update\ =\ RAGCallbacks::UpdateFeatures<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00015\ \textcolor{keyword}{using\ }R\_Merge\ =\ RAGCallbacks::MergingCriteria<RabbaniFeatures,\ RabbaniEdge,\ RabbaniVertex>;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }RabbaniRAG\ :\ \textcolor{keyword}{public}\ RegionAdjacencyGraph<RabbaniVertex,\ RabbaniEdge,\ RabbaniFeatures>}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ RabbaniRAG(\mbox{\hyperlink{class_point___cloud}{Point\_Cloud}}\ *pc,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ search\_radius,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R\_Update\ update\_features,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R\_Merge\ mc);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ RabbaniRAG(\mbox{\hyperlink{class_rabbani_vertex}{RabbaniVertex}}\ *root,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ search\_radius,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R\_Update\ update\_features,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ R\_Merge\ mc);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \string~RabbaniRAG();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ perform\ a\ single\ round\ of\ region\ merging}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ RabbaniVertex\ *run(double\ scale\_parameter,}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ RunMode\ mode,}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int\ region\_size);}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ output(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *output\_path)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_point___cloud}{Point\_Cloud}}\ *pc;}
+\DoxyCodeLine{00042\ \ \ \ \ pcl::PointCloud<pcl::PointXYZ>::Ptr\ cloud;}
+\DoxyCodeLine{00043\ \ \ \ \ pcl::PointCloud<pcl::Normal>::Ptr\ normal\_cloud;}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{class_rabbani_features}{RabbaniFeatures}}\ *features;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{double}\ search\_radius;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{comment}{//\ +\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ |\ for\ initial\ the\ vertices,\ features,\ and\ edges.\ |}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{comment}{//\ +\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+}}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ connect\_vertex\_and\_edge()\ \textcolor{keyword}{override};\ \ \ \textcolor{comment}{//\ high\ level\ call.}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_vertice();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Phase\ 1}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ kd\_tree\_radius\_consturct\_topo(\textcolor{keywordtype}{double});\ \textcolor{comment}{//\ Phase\ 2}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ initial\_edges(\textcolor{keywordtype}{int});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Phase\ 3}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ +}}
+\DoxyCodeLine{00055\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\doxysection{Cluster.\+h}
+\hypertarget{_cluster_8h_source}{}\label{_cluster_8h_source}\index{include/Cluster.h@{include/Cluster.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vertex.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_min_max}{MinMax}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ std::vector<double>\ minimum\_coordinates;}
+\DoxyCodeLine{00007\ \ \ \ \ std::vector<double>\ maximum\_coordinates;}
+\DoxyCodeLine{00008\ \};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Cluster}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00012\ \ \ \ \ Cluster();}
+\DoxyCodeLine{00013\ \ \ \ \ Cluster(\mbox{\hyperlink{class_vertex}{Vertex}}*\ root\_vertex);}
+\DoxyCodeLine{00014\ \ \ \ \ Cluster(\mbox{\hyperlink{class_vertex}{Vertex}}*\ root\_vertex,\ \textcolor{keywordtype}{int}\ minimum\_size,\ \textcolor{keywordtype}{int}\ pisition\_dimension,\ \textcolor{keywordtype}{int}\ dataset\_size);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \string~Cluster();}
+\DoxyCodeLine{00017\ \ \ \ \ std::pair<Cluster*,\ Cluster*>\ divide\_cluster();}
+\DoxyCodeLine{00018\ \ \ \ \ std::pair<Cluster*,\ Cluster*>\ divide\_cluster\_parallel();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//int*\ vertice\_id;}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//Vertex*\ vertice;}}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_vertex}{Vertex}}*\ root\_vertex;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ dataset\_size;\textcolor{comment}{//equals\ to\ vertex\ num}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_sign;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ interval;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ position\_dimension;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ minimum\_size;}
+\DoxyCodeLine{00031\ \ \ \ \ Cluster*\ left\_child;}
+\DoxyCodeLine{00032\ \ \ \ \ Cluster*\ right\_child;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//MinMax\ parallel\_find\_min\_max(Vertex*\ start\_vertex,\ int\ num\_vertices,\ int\ position\_dimension);}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//void\ parallel\_histogram(Vertex*\ start\_vertex,\ int\ num\_vertices,\ int\ longest\_coord,\ double\ minimum\_coordinate,\ double\ interval,\ std::vector<int>\&\ histogram);}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//void\ parallel\_divide\_vertices(Vertex*\ start\_vertex,\ int\ num\_vertices,\ int\ longest\_coord,\ double\ median,\ Vertex**\ left\_root,\ Vertex**\ left\_tail,\ int*\ left\_size,\ Vertex**\ right\_root,\ Vertex**\ right\_tail,\ int*\ right\_size);}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+
+\end{DoxyCode}

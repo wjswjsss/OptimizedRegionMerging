@@ -1,0 +1,37 @@
+\doxysection{Rabbani\+Vertex.\+h}
+\hypertarget{_rabbani_vertex_8h_source}{}\label{_rabbani_vertex_8h_source}\index{include/RabbaniVertex.h@{include/RabbaniVertex.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Vertex.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}BaseFeatures.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Eigen/Core>}\ \textcolor{comment}{//\ for\ Eigen::Vector3d}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_edge___cloud}{Edge\_Cloud}};}
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_n_n_g}{NNG}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_rabbani_features}{RabbaniFeatures}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }RabbaniVertex\ :\ \textcolor{keyword}{public}\ Vertex}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/\ our\ new\ attribute}}
+\DoxyCodeLine{00015\ \ \ \ \ Eigen::Vector3d\ normal\ =\ Eigen::Vector3d::Zero();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ constructors}}
+\DoxyCodeLine{00018\ \ \ \ \ RabbaniVertex();}
+\DoxyCodeLine{00019\ \ \ \ \ RabbaniVertex(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00020\ \ \ \ \ RabbaniVertex(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00021\ \ \ \ \ RabbaniVertex(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ k,\ \mbox{\hyperlink{class_rabbani_features}{RabbaniFeatures}}\ *features);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \string~RabbaniVertex();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ show\ the\ linked\ vertices\ by\ ID}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ show\_vertices();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ GetID()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ if\ you\ still\ need\ Org\_ID\ semantics:}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ Org\_ID;}
+\DoxyCodeLine{00031\ \};}
+
+\end{DoxyCode}

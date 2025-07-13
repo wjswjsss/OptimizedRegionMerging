@@ -1,0 +1,25 @@
+<map id="RAG_Cloud" name="RAG_Cloud">
+<area shape="rect" id="Node000001" title=" " alt="" coords="196,596,287,622"/>
+<area shape="rect" id="Node000002" href="$class_region_adjacency_graph.html" title=" " alt="" coords="143,491,340,547"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,562,244,596,239,596,239,562"/>
+<area shape="rect" id="Node000003" href="$class_point_cloud_features.html" title=" " alt="" coords="5,374,142,400"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="58,414,47,441,47,454,52,465,65,476,86,485,143,500,142,505,85,490,62,480,48,469,42,455,42,440,53,412"/>
+<area shape="rect" id="Node000004" href="$class_root_features.html" title=" " alt="" coords="45,5,145,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="96,46,77,374,72,373,91,46"/>
+<area shape="rect" id="Node000006" href="$class_vertex.html" title=" " alt="" coords="156,131,215,157"/>
+<area shape="poly" id="edge10_Node000006_Node000004" title=" " alt="" coords="115,42,179,129,175,132,110,45"/>
+<area shape="rect" id="Node000005" href="$class_vertex___cloud.html" title=" " alt="" coords="114,277,214,303"/>
+<area shape="poly" id="edge11_Node000002_Node000005" title=" " alt="" coords="180,315,185,326,217,415,237,490,232,491,211,417,180,328,176,318"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="137,315,121,329,83,375,79,372,117,325,133,311"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="184,173,169,277,163,277,179,172"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="225,127,237,132,242,144,239,153,231,159,209,160,209,155,229,154,234,150,237,144,233,136,223,132"/>
+<area shape="rect" id="Node000007" href="$class_edge.html" title=" " alt="" coords="289,277,340,303"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="186,172,189,213,195,234,206,252,224,266,246,276,289,285,288,290,244,281,221,271,202,255,190,236,183,214,180,173"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="307,263,298,237,283,212,249,181,212,160,215,155,252,177,288,208,303,235,312,262"/>
+<area shape="poly" id="edge9_Node000007_Node000007" title=" " alt="" coords="357,280,364,283,367,291,359,300,341,302,341,296,356,295,362,290,360,287,355,285"/>
+<area shape="rect" id="Node000008" href="$class_edge___cloud.html" title=" " alt="" coords="273,374,365,400"/>
+<area shape="poly" id="edge13_Node000008_Node000007" title=" " alt="" coords="319,318,321,373,316,374,313,318"/>
+<area shape="poly" id="edge12_Node000002_Node000008" title=" " alt="" coords="306,414,260,492,255,489,302,412"/>
+<area shape="rect" id="Node000009" href="$class_n_n_g.html" title=" " alt="" coords="389,374,440,400"/>
+<area shape="poly" id="edge14_Node000002_Node000009" title=" " alt="" coords="399,414,375,442,346,469,308,493,305,488,343,465,372,438,395,411"/>
+</map>

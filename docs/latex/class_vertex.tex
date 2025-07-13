@@ -1,0 +1,139 @@
+\doxysection{Vertex Class Reference}
+\hypertarget{class_vertex}{}\label{class_vertex}\index{Vertex@{Vertex}}
+
+
+Inheritance diagram for Vertex\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_vertex__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vertex\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{class_vertex__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_vertex_a918e94c74b3716e48c90541cd3edd7ee}\label{class_vertex_a918e94c74b3716e48c90541cd3edd7ee} 
+{\bfseries Vertex} (int id, int connection\+\_\+degree, double radius)
+\item 
+\Hypertarget{class_vertex_adedf8f65466021bfe37b41a92b8109cc}\label{class_vertex_adedf8f65466021bfe37b41a92b8109cc} 
+{\bfseries Vertex} (int ID, \mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*}features)
+\item 
+\Hypertarget{class_vertex_ae41392c22babfd6a464544e1bc1df332}\label{class_vertex_ae41392c22babfd6a464544e1bc1df332} 
+{\bfseries Vertex} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\item 
+\Hypertarget{class_vertex_a78521b9d421d9cf26b1bad7d52da0855}\label{class_vertex_a78521b9d421d9cf26b1bad7d52da0855} 
+void {\bfseries push} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}ptr\+\_\+e)
+\item 
+\Hypertarget{class_vertex_a3a723563a700d54ecff7209af7d52124}\label{class_vertex_a3a723563a700d54ecff7209af7d52124} 
+void {\bfseries push\+\_\+range} (int \texorpdfstring{$\ast$}{*}first, int \texorpdfstring{$\ast$}{*}last)
+\item 
+\Hypertarget{class_vertex_a297d735ee4e91cdead759ed3622c919e}\label{class_vertex_a297d735ee4e91cdead759ed3622c919e} 
+void {\bfseries add\+\_\+next\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}ptr\+\_\+next)
+\item 
+\Hypertarget{class_vertex_a8915fd4a8706956e46f23fe8912329ca}\label{class_vertex_a8915fd4a8706956e46f23fe8912329ca} 
+void {\bfseries remove\+\_\+edge} (int edge\+\_\+id)
+\item 
+\Hypertarget{class_vertex_a85b4aedd6727267f7fbcfe34f4674ba9}\label{class_vertex_a85b4aedd6727267f7fbcfe34f4674ba9} 
+void {\bfseries change\+\_\+direct} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}new\+\_\+direct, \mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*}nng)
+\item 
+\Hypertarget{class_vertex_a58f8a3c44fcb51d5818310affb1cc1d6}\label{class_vertex_a58f8a3c44fcb51d5818310affb1cc1d6} 
+void {\bfseries set\+\_\+position\+\_\+dimention} (int dimention)
+\item 
+\Hypertarget{class_vertex_aafa4e560ac2e8a2eb04583ff84b2da6d}\label{class_vertex_aafa4e560ac2e8a2eb04583ff84b2da6d} 
+void {\bfseries append\+\_\+sign} (bool sign)
+\item 
+\Hypertarget{class_vertex_ab8b5b99eafb395265c3f7ba2f6ebfbc9}\label{class_vertex_ab8b5b99eafb395265c3f7ba2f6ebfbc9} 
+int {\bfseries get\+\_\+sign} ()
+\item 
+\Hypertarget{class_vertex_a98d5b4be8c358aee171cc21690b22844}\label{class_vertex_a98d5b4be8c358aee171cc21690b22844} 
+void {\bfseries reset} ()
+\item 
+\Hypertarget{class_vertex_abae3dc6eb9745ccacf65cfd3d487498e}\label{class_vertex_abae3dc6eb9745ccacf65cfd3d487498e} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other) const
+\item 
+\Hypertarget{class_vertex_ac0a2d8b38b691bf45de2650485e6dd1e}\label{class_vertex_ac0a2d8b38b691bf45de2650485e6dd1e} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\item 
+\Hypertarget{class_vertex_a960b35f156d25a0324f1649df56397e9}\label{class_vertex_a960b35f156d25a0324f1649df56397e9} 
+virtual int {\bfseries Get\+ID} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_vertex_a0cba89e02ff20e3d4324049141c8d8d2}\label{class_vertex_a0cba89e02ff20e3d4324049141c8d8d2} 
+int {\bfseries ID}
+\item 
+\Hypertarget{class_vertex_adad743da4d53acf0369e3ac31a9c7cbb}\label{class_vertex_adad743da4d53acf0369e3ac31a9c7cbb} 
+int {\bfseries position\+\_\+dimension}
+\item 
+\Hypertarget{class_vertex_a6cc5918db5ce1bf09c9bdab592c2c4c2}\label{class_vertex_a6cc5918db5ce1bf09c9bdab592c2c4c2} 
+double \texorpdfstring{$\ast$}{*} {\bfseries positions}
+\item 
+\Hypertarget{class_vertex_a17b24114264090683ec93d2239da506b}\label{class_vertex_a17b24114264090683ec93d2239da506b} 
+double {\bfseries radius}
+\item 
+\Hypertarget{class_vertex_a9a0ed81e0c444fd51d07f3cd1a27192f}\label{class_vertex_a9a0ed81e0c444fd51d07f3cd1a27192f} 
+int {\bfseries connection\+\_\+degree}
+\item 
+\Hypertarget{class_vertex_a38d8abd4e5ae2eaf1722e69d1ac8290a}\label{class_vertex_a38d8abd4e5ae2eaf1722e69d1ac8290a} 
+int {\bfseries color}
+\item 
+\Hypertarget{class_vertex_a75bccbd448c12a06fa28a464b1a35fdd}\label{class_vertex_a75bccbd448c12a06fa28a464b1a35fdd} 
+int {\bfseries size}
+\item 
+\Hypertarget{class_vertex_ab569743623caa57d88e0dd7735a43480}\label{class_vertex_ab569743623caa57d88e0dd7735a43480} 
+State {\bfseries state}
+\item 
+\Hypertarget{class_vertex_afb92de2e5329acfe640cbf771b5ce197}\label{class_vertex_afb92de2e5329acfe640cbf771b5ce197} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\item 
+\Hypertarget{class_vertex_afc0e463d7fee2693916ee645d8a75f86}\label{class_vertex_afc0e463d7fee2693916ee645d8a75f86} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\item 
+\Hypertarget{class_vertex_aac2923f76c592f7d436a5cc59725f63c}\label{class_vertex_aac2923f76c592f7d436a5cc59725f63c} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+in\+\_\+region}
+\item 
+\Hypertarget{class_vertex_a8e709389ce82270dd535742d936eb29e}\label{class_vertex_a8e709389ce82270dd535742d936eb29e} 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries last}
+\item 
+\Hypertarget{class_vertex_a52ad57847032dcc3830208844a4f5949}\label{class_vertex_a52ad57847032dcc3830208844a4f5949} 
+bool {\bfseries is\+\_\+visited}
+\item 
+\Hypertarget{class_vertex_a7b0b1d90f782fc7f229f3078e40b6592}\label{class_vertex_a7b0b1d90f782fc7f229f3078e40b6592} 
+bool {\bfseries is\+\_\+built\+\_\+tree} = false
+\item 
+\Hypertarget{class_vertex_a3a64cfcf2c98ff27658474c4c7f0a5be}\label{class_vertex_a3a64cfcf2c98ff27658474c4c7f0a5be} 
+std\+::vector$<$ int $>$ {\bfseries edges}
+\item 
+\Hypertarget{class_vertex_a69533813c2d88a1e33eac950bd580337}\label{class_vertex_a69533813c2d88a1e33eac950bd580337} 
+std\+::vector$<$ int $>$ {\bfseries merged\+\_\+vertice}
+\item 
+\Hypertarget{class_vertex_a4fd98d9fa0796ccc828a1073886ba53b}\label{class_vertex_a4fd98d9fa0796ccc828a1073886ba53b} 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries direct}
+\item 
+\Hypertarget{class_vertex_afa00c061e1e5b5f0df13460a84ac8954}\label{class_vertex_afa00c061e1e5b5f0df13460a84ac8954} 
+\mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*} {\bfseries ptr\+\_\+features}
+\item 
+\Hypertarget{class_vertex_a4ab15c28306a19b31be59d64fa006abe}\label{class_vertex_a4ab15c28306a19b31be59d64fa006abe} 
+int {\bfseries bit\+\_\+sign}
+\item 
+\Hypertarget{class_vertex_ac1e4eb435ea59b9be53fcc6d803a3cfb}\label{class_vertex_ac1e4eb435ea59b9be53fcc6d803a3cfb} 
+int {\bfseries bits\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Vertex.\+h\item 
+src/Vertex.\+cpp\end{DoxyCompactItemize}

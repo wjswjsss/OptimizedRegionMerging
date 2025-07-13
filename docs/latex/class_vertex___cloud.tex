@@ -1,0 +1,140 @@
+\doxysection{Vertex\+\_\+\+Cloud Class Reference}
+\hypertarget{class_vertex___cloud}{}\label{class_vertex___cloud}\index{Vertex\_Cloud@{Vertex\_Cloud}}
+
+
+Inheritance diagram for Vertex\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_vertex___cloud__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Vertex\+\_\+\+Cloud\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_vertex___cloud__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_vertex___cloud_a7a7bd3ae200b44e0a8eba224aeafaebe}\label{class_vertex___cloud_a7a7bd3ae200b44e0a8eba224aeafaebe} 
+{\bfseries Vertex\+\_\+\+Cloud} (int id)
+\item 
+\Hypertarget{class_vertex___cloud_a05ab815c56019efdc77fc49c5ed1d79c}\label{class_vertex___cloud_a05ab815c56019efdc77fc49c5ed1d79c} 
+{\bfseries Vertex\+\_\+\+Cloud} (int id, int k)
+\item 
+\Hypertarget{class_vertex___cloud_a15c9382c691d80bc4b11c3fa0adc6a8f}\label{class_vertex___cloud_a15c9382c691d80bc4b11c3fa0adc6a8f} 
+{\bfseries Vertex\+\_\+\+Cloud} (int id, int k, \mbox{\hyperlink{class_point_cloud_features}{Point\+Cloud\+Features}} \texorpdfstring{$\ast$}{*}features)
+\item 
+\Hypertarget{class_vertex___cloud_aa3c268e1b357ed3967fa8fbc45826495}\label{class_vertex___cloud_aa3c268e1b357ed3967fa8fbc45826495} 
+void {\bfseries show\+\_\+vertice} ()
+\item 
+virtual int \mbox{\hyperlink{class_vertex___cloud_a95b6377b2c282b898dd1538bed634ef8}{Get\+ID}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_vertex}{Vertex}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Vertex} (int id, int connection\+\_\+degree, double radius)
+\item 
+{\bfseries Vertex} (int ID, \mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*}features)
+\item 
+{\bfseries Vertex} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\item 
+void {\bfseries push} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}ptr\+\_\+e)
+\item 
+void {\bfseries push\+\_\+range} (int \texorpdfstring{$\ast$}{*}first, int \texorpdfstring{$\ast$}{*}last)
+\item 
+void {\bfseries add\+\_\+next\+\_\+vertex} (\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*}ptr\+\_\+next)
+\item 
+void {\bfseries remove\+\_\+edge} (int edge\+\_\+id)
+\item 
+void {\bfseries change\+\_\+direct} (\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*}new\+\_\+direct, \mbox{\hyperlink{class_n_n_g}{NNG}} \texorpdfstring{$\ast$}{*}nng)
+\item 
+void {\bfseries set\+\_\+position\+\_\+dimention} (int dimention)
+\item 
+void {\bfseries append\+\_\+sign} (bool sign)
+\item 
+int {\bfseries get\+\_\+sign} ()
+\item 
+void {\bfseries reset} ()
+\item 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other) const
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_vertex}{Vertex}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_vertex___cloud_aacc3faf11f52b0535171b3edd5ada977}\label{class_vertex___cloud_aacc3faf11f52b0535171b3edd5ada977} 
+int {\bfseries Org\+\_\+\+ID}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_vertex}{Vertex}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries ID}
+\item 
+int {\bfseries position\+\_\+dimension}
+\item 
+double \texorpdfstring{$\ast$}{*} {\bfseries positions}
+\item 
+double {\bfseries radius}
+\item 
+int {\bfseries connection\+\_\+degree}
+\item 
+int {\bfseries color}
+\item 
+int {\bfseries size}
+\item 
+State {\bfseries state}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries parent}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries next\+\_\+in\+\_\+region}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}} \texorpdfstring{$\ast$}{*} {\bfseries last}
+\item 
+bool {\bfseries is\+\_\+visited}
+\item 
+bool {\bfseries is\+\_\+built\+\_\+tree} = false
+\item 
+std\+::vector$<$ int $>$ {\bfseries edges}
+\item 
+std\+::vector$<$ int $>$ {\bfseries merged\+\_\+vertice}
+\item 
+\mbox{\hyperlink{class_edge}{Edge}} \texorpdfstring{$\ast$}{*} {\bfseries direct}
+\item 
+\mbox{\hyperlink{class_root_features}{Root\+Features}} \texorpdfstring{$\ast$}{*} {\bfseries ptr\+\_\+features}
+\item 
+int {\bfseries bit\+\_\+sign}
+\item 
+int {\bfseries bits\+\_\+num}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{class_vertex___cloud_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_vertex___cloud_a95b6377b2c282b898dd1538bed634ef8}\index{Vertex\_Cloud@{Vertex\_Cloud}!GetID@{GetID}}
+\index{GetID@{GetID}!Vertex\_Cloud@{Vertex\_Cloud}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily \label{class_vertex___cloud_a95b6377b2c282b898dd1538bed634ef8} 
+int Vertex\+\_\+\+Cloud\+::\+Get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_vertex}{Vertex}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Vertex\+\_\+\+Cloud.\+h\item 
+src/Vertex\+\_\+\+Cloud.\+cpp\end{DoxyCompactItemize}
