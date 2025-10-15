@@ -6,7 +6,7 @@ CXX_DEFINES = -DBOOST_ATOMIC_DYN_LINK -DBOOST_ATOMIC_NO_LIB -DBOOST_FILESYSTEM_D
 
 CXX_INCLUDES = -I/Users/wangjiashu/Desktop/ComputerVision/PC_segmentation/project/include -I/usr/local/include/LASlib -isystem /opt/homebrew/include/eigen3 -isystem /opt/homebrew/include/pcl-1.15 -isystem /opt/homebrew/include -isystem /opt/homebrew/include/vtk-9.4 -isystem /opt/homebrew/include/vtk-9.4/token -isystem /opt/homebrew/include/vtk-9.4/vtkkissfft -isystem /opt/homebrew/include/freetype2 -isystem /opt/homebrew/include/vtk-9.4/vtkglad -isystem /opt/homebrew/lib/QtOpenGL.framework/Headers -iframework /opt/homebrew/lib -isystem /opt/homebrew/lib/QtCore.framework/Headers -isystem /opt/homebrew/share/qt/mkspecs/macx-clang -isystem /opt/homebrew/lib/QtGui.framework/Headers -isystem /opt/homebrew/lib/QtWidgets.framework/Headers -isystem /opt/homebrew/lib/QtOpenGLWidgets.framework/Headers
 
-CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -ffloat-store
+CXX_FLAGSarm64 = -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -ffloat-store
 
-CXX_FLAGS = -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -ffloat-store
+CXX_FLAGS = -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -ffloat-store
 

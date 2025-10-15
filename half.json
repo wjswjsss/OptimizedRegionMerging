@@ -1,0 +1,7 @@
+// save as half.json
+[
+    { "type":"readers.las",    "filename":"../../pointCloudData/output.las"    },
+    { "type":"filters.decimation", "step":2            },
+    { "type":"writers.las",    "filename":"half.las"     }
+  ]
+  

@@ -7,6 +7,11 @@
 #include <chrono>
 #include <cmath>
 
+// #include <liblas/liblas.hpp>
+#include <fstream>
+#include <iostream>
+#include <string>
+
 // gdal
 // #include"gdal_priv.h"
 
@@ -52,12 +57,10 @@ using namespace std;
 void OpenLAS();
 void OpenPCD();
 void OpenLASRabbani();
-void analyzeLAS();
-void centerLAS(const char *inFile, const char *outFile);
+std::string centerPointCloud(const std::string &inputPath);
 
 int main()
 {
-	analyzeLAS();
 	OpenLASRabbani();
 	// OpenPCD();
 
@@ -138,62 +141,37 @@ void OpenLAS()
 // + -------------------------------------- +
 void OpenLASRabbani()
 {
-	std::cout << RED_TEXT << "U r running the Rabbani Criteria based Region Merging Algo." << RESET_COLOR
-			  << std::endl;
+	std::cout << RED_TEXT
+			  << "U r running the Rabbani Criteria based Region Merging Algo."
+			  << RESET_COLOR << std::endl;
 
-	const char *inputPath = "../../../pointCloudData/output.las";
-	const char *outputPath = "../../../pointCloudData/outputCentered.las";
+	const char *rawPath = "../../../pointCloudData/output.las";
+	std::string path = rawPath;
+	path = centerPointCloud(path); // Center the point cloud before processing
 
-	try
-	{
-		std::cout << "Centering point cloud...\n";
-		centerLAS(inputPath, outputPath);
-		std::cout << "Point cloud centered and written to " << outputPath << "\n";
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Error: " << e.what() << "\n";
-		exit(1);
-	}
+	// now path either points to the original or the new centered file
+	std::cout << "[Using point cloud file] " << path << std::endl;
 
-	// std::string path =      "E:\\01paper\\mypaper7_clustering_acceleation\\data\\pointcloud\\tree\\plot_1_annotated.las";
-	std::string path = "../../../pointCloudData/outputCentered.las"; // plot_1_annotated_tree_160k
-	// std::string path = "E:\\01paper\\mypaper7_clustering_acceleation\\data\\pointcloud\\tree\\plot_1_annotated_tree_160k.las";//
-
-	std::string save_path = "./";
-
+	// rest of your code unchanged, but using 'path'
 	auto start_time = std::chrono::high_resolution_clock::now();
+	int region_size = 2500;
+	double scale_parameter = 4;
+	double search_radius = 20;
+	RunMode run_mode = RunMode::Region_Pruning_Cycle_MultiCores;
 
-	// Point_Cloud* pr_C = new Point_Cloud(path.c_str());
-	// pr_C->save_as_las_file(save_path.c_str(), "treeID", 0.0);
-
-	int region_size = 200;
-
-	// + -------------------------------------------------------- +
-	// | Instantiate Rabbani criteria driven Region Merging Class |
-	// + -------------------------------------------------------- +
-	RabbaniRM3D *rabbani = new RabbaniRM3D(path.c_str());
-
-	double scale_parameter = 44.9;
-	double search_radius = 100;
-
-	// + --------------------------------------------------------------- +
-	// | Calling Rabbani criteria driven Region Merging Class run method |
-	// + --------------------------------------------------------------- +
 	std::cout << RED_TEXT << "[Call] RabbaniRM3D::run" << RESET_COLOR << std::endl;
-	RunMode run_mode = RunMode::Pruning_Cycle;
 	printMode(run_mode);
+
+	RabbaniRM3D *rabbani = new RabbaniRM3D(path.c_str());
 	rabbani->run(scale_parameter, search_radius, region_size, run_mode);
+	delete rabbani;
 
 	auto end_time = std::chrono::high_resolution_clock::now();
-	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
-	long long t = duration.count();
-	// hrm3d->output(save_path.c_str());
-	delete rabbani;
-	if (t < 10)
-		std::cout << "Total time:" << GREEN_TEXT << t << RESET_COLOR << "ms" << std::endl;
+	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count();
+	if (duration < 10)
+		std::cout << "Total time: " << GREEN_TEXT << duration << RESET_COLOR << "ms\n";
 	else
-		std::cout << "Total time:" << RED_TEXT << t << RESET_COLOR << "ms" << std::endl;
+		std::cout << "Total time: " << RED_TEXT << duration << RESET_COLOR << "ms\n";
 }
 
 /// test pcl
@@ -234,201 +212,6 @@ void OpenPCD()
 	}
 }
 
-// Helper to compute percentile from a sorted vector
-double percentile(const std::vector<double> &data, double p)
-{
-	if (data.empty())
-		return 0.0;
-	double idx = p / 100.0 * (data.size() - 1);
-	size_t lo = static_cast<size_t>(std::floor(idx));
-	size_t hi = static_cast<size_t>(std::ceil(idx));
-	if (hi == lo)
-		return data[lo];
-	double weight = idx - lo;
-	return data[lo] * (1.0 - weight) + data[hi] * weight;
-}
-
-void analyzeLAS()
-{
-	// 1. hard-coded paths
-	const char *lasFilePath = "../../../pointCloudData/output.las";
-
-	LASreadOpener lasreadopener;
-	lasreadopener.set_file_name(lasFilePath);
-	lasreadopener.parse(0, nullptr);
-	LASreader *reader = lasreadopener.open();
-	if (!reader)
-	{
-		std::cerr << "ERROR: could not open LAS file: "
-				  << lasFilePath << std::endl;
-		return;
-	}
-
-	std::uint64_t count = 0;
-	double sumX = 0, sumY = 0, sumZ = 0;
-	double sumX2 = 0, sumY2 = 0, sumZ2 = 0;
-
-	std::vector<double> xs, ys, zs;
-	xs.reserve(1000000);
-	ys.reserve(1000000);
-	zs.reserve(1000000);
-
-	while (reader->read_point())
-	{
-		double x = reader->get_x();
-		double y = reader->get_y();
-		double z = reader->get_z();
-
-		sumX += x;
-		sumY += y;
-		sumZ += z;
-		sumX2 += x * x;
-		sumY2 += y * y;
-		sumZ2 += z * z;
-		xs.push_back(x);
-		ys.push_back(y);
-		zs.push_back(z);
-		++count;
-	}
-
-	reader->close();
-	delete reader;
-
-	if (count == 0)
-	{
-		std::cerr << "No points found in the LAS file.\n";
-		return;
-	}
-
-	// Sort for min/max/percentiles
-	std::sort(xs.begin(), xs.end());
-	std::sort(ys.begin(), ys.end());
-	std::sort(zs.begin(), zs.end());
-
-	double meanX = sumX / count;
-	double meanY = sumY / count;
-	double meanZ = sumZ / count;
-
-	double varX = sumX2 / count - meanX * meanX;
-	double varY = sumY2 / count - meanY * meanY;
-	double varZ = sumZ2 / count - meanZ * meanZ;
-
-	double stdX = std::sqrt(varX);
-	double stdY = std::sqrt(varY);
-	double stdZ = std::sqrt(varZ);
-
-	// Min / Max
-	double minX = xs.front(), maxX = xs.back();
-	double minY = ys.front(), maxY = ys.back();
-	double minZ = zs.front(), maxZ = zs.back();
-
-	// Percentiles to compute
-	const double percentiles[] = {1, 5, 25, 50, 75, 95, 99};
-
-	// Output
-	std::cout << "Point count: " << count << "\n\n";
-
-	std::cout << "Axis Statistics:\n";
-	auto printAxis = [&](const char axis,
-						 double minv, double maxv,
-						 double meanv, double stdv,
-						 const std::vector<double> &data)
-	{
-		std::cout << axis << "-axis:\n"
-				  << "  Min = " << minv << "\n"
-				  << "  Max = " << maxv << "\n"
-				  << "  Mean = " << meanv << "\n"
-				  << "  Std  = " << stdv << "\n";
-
-		std::cout << "  Percentiles:\n";
-		for (double p : percentiles)
-		{
-			double val = percentile(data, p);
-			std::cout << "    " << p << "% → " << val << "\n";
-		}
-		std::cout << "\n";
-	};
-
-	printAxis('X', minX, maxX, meanX, stdX, xs);
-	printAxis('Y', minY, maxY, meanY, stdY, ys);
-	printAxis('Z', minZ, maxZ, meanZ, stdZ, zs);
-}
-
-/// Centers all points in `inFile` around the median of each axis
-/// and writes the result to `outFile`.
-void centerLAS(const char *inFile, const char *outFile)
-{
-	// --- FIRST PASS: collect coordinates and header ---
-	LASreadOpener readerOpener;
-	readerOpener.set_file_name(inFile);
-	readerOpener.parse(0, nullptr);
-	LASreader *reader1 = readerOpener.open();
-	if (!reader1)
-	{
-		throw std::runtime_error(std::string("Cannot open input LAS: ") + inFile);
-	}
-
-	std::vector<double> xs, ys, zs;
-	xs.reserve(1000000);
-	ys.reserve(1000000);
-	zs.reserve(1000000);
-
-	while (reader1->read_point())
-	{
-		xs.push_back(reader1->get_x());
-		ys.push_back(reader1->get_y());
-		zs.push_back(reader1->get_z());
-	}
-
-	LASheader header = reader1->header; // copy for writer
-	reader1->close();
-	delete reader1;
-
-	if (xs.empty())
-	{
-		throw std::runtime_error("Input LAS contains no points.");
-	}
-
-	// sort to find median
-	auto find_median = [&](std::vector<double> &v)
-	{
-		std::sort(v.begin(), v.end());
-		return v[v.size() / 2];
-	};
-	double medX = find_median(xs);
-	double medY = find_median(ys);
-	double medZ = find_median(zs);
-
-	// --- SECOND PASS: subtract medians and write out ---
-	LASreader *reader2 = readerOpener.open(); // reopen same file
-	LASwriteOpener writerOpener;
-	writerOpener.set_file_name(outFile);
-	LASwriter *writer = writerOpener.open(&header);
-	if (!writer)
-	{
-		reader2->close();
-		delete reader2;
-		throw std::runtime_error(std::string("Cannot open output LAS: ") + outFile);
-	}
-
-	while (reader2->read_point())
-	{
-		LASpoint p = reader2->point;
-		double cx = p.get_x() - medX;
-		double cy = p.get_y() - medY;
-		double cz = p.get_z() - medZ;
-
-		p.set_X(cx);
-		p.set_Y(cy);
-		p.set_Z(cz);
-		writer->write_point(&p);
-	}
-
-	writer->close();
-	delete writer;
-	reader2->close();
-	delete reader2;
-}
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
 
@@ -439,3 +222,157 @@ void centerLAS(const char *inFile, const char *outFile)
 //   4. 使用错误列表窗口查看错误
 //   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
 //   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+
+// new Functions
+//------------------------------------------------------------------------------
+// Compute centroid, shift all points by subtracting the mean, write out new file
+//------------------------------------------------------------------------------
+///
+/// Compute the centroid of the input .las, subtract it from every point,
+/// write out to "<inputBase>_centered.las", log the mean, and return the new path.
+///
+std::string centerPointCloud(const std::string &inputPath)
+{
+	std::cout << "[INFO] centerPointCloud() called with inputPath = “"
+			  << inputPath << "”\n";
+
+	// 1) OPEN READER
+	LASreadOpener ropr;
+	ropr.set_file_name(inputPath.c_str());
+	std::cout << "[INFO] Attempting to open LASreader…\n";
+	LASreader *reader = ropr.open();
+	if (!reader)
+	{
+		std::cerr << "[ERROR] LASreadOpener::open() returned nullptr for “"
+				  << inputPath << "”\n";
+		throw std::runtime_error("Failed to open LAS reader for " + inputPath);
+	}
+	std::cout << "[INFO] LASreader opened at ptr=" << reader << "\n";
+
+	// 1a) LOG HEADER METADATA (with correct field names)
+	{
+		auto &H = reader->header;
+		std::cout << "[INFO] Header:\n"
+				  << "       Version:             " << int(H.version_major)
+				  << "." << int(H.version_minor) << "\n"
+				  << "       Point format:        " << int(H.point_data_format) << "\n"
+				  << "       Point count:         " << H.number_of_point_records << "\n"
+				  << "       Point record length: " << H.point_data_record_length << "\n"
+				  << "       Bounds X:            [" << H.min_x << ", " << H.max_x << "]\n"
+				  << "       Bounds Y:            [" << H.min_y << ", " << H.max_y << "]\n"
+				  << "       Bounds Z:            [" << H.min_z << ", " << H.max_z << "]\n";
+	}
+
+	// 2) ACCUMULATE SUM & COUNT
+	std::uint64_t count = 0;
+	double sumX = 0, sumY = 0, sumZ = 0;
+	while (reader->read_point())
+	{
+		sumX += reader->get_x();
+		sumY += reader->get_y();
+		sumZ += reader->get_z();
+		++count;
+	}
+	if (count == 0)
+	{
+		reader->close();
+		delete reader;
+		throw std::runtime_error("No points in " + inputPath);
+	}
+
+	// 3) COMPUTE & LOG MEANS
+	double meanX = sumX / count;
+	double meanY = sumY / count;
+	double meanZ = sumZ / count;
+	std::cout << "[INFO] Computed means over " << count << " points → "
+			  << "meanX=" << meanX << "  meanY=" << meanY
+			  << "  meanZ=" << meanZ << "\n";
+
+	// 4) REOPEN READER FOR WRITING PASS
+	std::cout << "[INFO] Reopening reader for write pass…\n";
+	reader->close();
+	delete reader;
+	// reader = ropr.open();
+	// if (!reader)
+	// {
+	// 	std::cerr << "[ERROR] Re-open failed!\n";
+	// 	throw std::runtime_error("Failed to reopen LAS reader for write pass");
+	// }
+	LASreadOpener ropr2;
+	ropr2.set_file_name(inputPath.c_str());
+	std::cout << "[INFO] Re-opening with fresh opener…\n";
+	reader = ropr2.open();
+	if (!reader)
+	{
+		std::cerr << "[ERROR] Re-open still failed!\n";
+		throw std::runtime_error("Failed to reopen LAS reader for write pass");
+	}
+	std::cout << "[INFO] Reader reopened at ptr=" << reader << "\n";
+
+	// 5) PREPARE WRITER
+	std::string outPath = inputPath.substr(0, inputPath.find_last_of('.')) + "_centered.las";
+	std::cout << "[INFO] Preparing to write centered file to “"
+			  << outPath << "”\n";
+
+	// 5a) Quick file-creatability test
+	{
+		std::ofstream ofs_test(outPath, std::ios::binary);
+		if (!ofs_test)
+		{
+			std::cerr << "[ERROR] Cannot create “" << outPath
+					  << "” — check directory & permissions\n";
+		}
+		else
+		{
+			std::cout << "[INFO] File creation test passed\n";
+		}
+	}
+
+	// 5b) Actual LASwriter open
+	std::cout << "[INFO] Calling LASwriteOpener::open(&reader->header)…\n";
+	LASwriteOpener wopr;
+	wopr.set_file_name(outPath.c_str());
+	LASwriter *writer = nullptr;
+	try
+	{
+		writer = wopr.open(&reader->header);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "[EXCEPTION] wopr.open() threw: " << e.what() << "\n";
+	}
+	if (!writer)
+	{
+		std::cerr << "[ERROR] wopr.open() returned nullptr\n";
+		reader->close();
+		delete reader;
+		throw std::runtime_error("Failed to open LAS writer for " + outPath);
+	}
+	std::cout << "[INFO] LASwriter opened at ptr=" << writer << "\n";
+
+	// 6) WRITE SHIFTED POINTS
+	std::cout << "[INFO] Writing centered points…\n";
+	while (reader->read_point())
+	{
+		double x = reader->get_x(),
+			   y = reader->get_y(),
+			   z = reader->get_z();
+		reader->point.set_x(x - meanX);
+		reader->point.set_y(y - meanY);
+		reader->point.set_z(z - meanZ);
+		writer->write_point(&reader->point);
+	}
+	std::cout << "[INFO] Finished writing.  Total points written: "
+			  << writer->npoints << "\n";
+
+	// 7) CLEAN UP
+	std::cout << "[INFO] Cleaning up reader & writer…\n";
+	writer->close();
+	delete writer;
+	reader->close();
+	delete reader;
+	std::cout << "[INFO] centerPointCloud() done.  Output = “"
+			  << outPath << "”\n";
+
+	return outPath;
+}

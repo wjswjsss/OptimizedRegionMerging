@@ -11,6 +11,7 @@
 #include <iostream>
 #include <chrono>
 #include "BaseFeatures.h"
+#include "vis.h"
 void RabbaniUpdateFeatures(RabbaniFeatures *A,
                            RabbaniFeatures *B,
                            RabbaniEdge * /*e*/);
@@ -32,7 +33,9 @@ RabbaniRM3D::RabbaniRM3D(const char *cloud_file)
     // this->get_features_func = /* your feature extractor */;
     this->update_features_func = RabbaniUpdateFeatures;
     this->merging_criteria = RabbaniAngleCriterion;
+    std::cout << "[INFO] Creating point cloud class" << std::endl;
     this->cloud = new Point_Cloud(cloud_file);
+    std::cout << "[INFO] Init RabbaniRM3D class done!" << std::endl;
 }
 
 RabbaniRM3D::~RabbaniRM3D()
@@ -77,77 +80,7 @@ void RabbaniRM3D::run(double scale_parameter, double search_radius, int region_s
     RabbaniVertex *region_root = root;
     auto originalCloud = this->cloud->pcl_cloud; // assume pcl_cloud is a pcl::PointCloud<PointXYZ>::Ptr
 
-    // 2. Create the PCLVisualizer in‐line (no thread):
-    pcl::visualization::PCLVisualizer::Ptr viewer{
-        new pcl::visualization::PCLVisualizer("Region Visualization")};
-    viewer->setBackgroundColor(0, 0, 0);
-    viewer->initCameraParameters();
-    viewer->addCoordinateSystem(1.0);
-
-    // 3. Define a simple color palette (expand if you expect >10 regions):
-    std::vector<std::tuple<uint8_t, uint8_t, uint8_t>> colors = {
-        {255, 0, 0},   // red
-        {0, 255, 0},   // green
-        {0, 0, 255},   // blue
-        {255, 255, 0}, // yellow
-        {255, 0, 255}, // magenta
-        {0, 255, 255}, // cyan
-        {128, 128, 0}, // olive
-        {128, 0, 128}, // purple
-        {0, 128, 128}, // teal
-        {128, 64, 0}   // brown
-    };
-
-    size_t totalPoints = 0;
-    int regionIdx = 0;
-    for (RabbaniVertex *r = region_root;
-         r != nullptr;
-         r = static_cast<RabbaniVertex *>(r->next_in_region))
-    {
-        // Build a PointCloud<PointXYZRGB> for this region:
-        pcl::PointCloud<pcl::PointXYZRGB>::Ptr regionCloud{new pcl::PointCloud<pcl::PointXYZRGB>()};
-        regionCloud->header = originalCloud->header;
-        regionCloud->is_dense = originalCloud->is_dense;
-
-        auto [r_col, g_col, b_col] = colors[regionIdx % colors.size()];
-
-        // Traverse all vertices (points) in this region via the 'next' link:
-        for (RabbaniVertex *v = r; v != nullptr; v = static_cast<RabbaniVertex *>(v->next))
-        {
-            int ptIdx = v->ID;
-            const auto &basePt = originalCloud->points[ptIdx];
-
-            pcl::PointXYZRGB p;
-            p.x = basePt.x;
-            p.y = basePt.y;
-            p.z = basePt.z;
-            p.r = r_col;
-            p.g = g_col;
-            p.b = b_col;
-            regionCloud->points.push_back(p);
-        }
-
-        regionCloud->width = static_cast<uint32_t>(regionCloud->points.size());
-        regionCloud->height = 1;
-
-        totalPoints += regionCloud->points.size();
-
-        std::string cloudName = "region_" + std::to_string(regionIdx);
-        viewer->addPointCloud<pcl::PointXYZRGB>(regionCloud, cloudName);
-        viewer->setPointCloudRenderingProperties(
-            pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, cloudName);
-
-        ++regionIdx;
-    }
-
-    std::cout << "Total points to visualize: " << totalPoints << std::endl;
-
-    // 4. Now spin in the same thread until the window closes:
-    while (!viewer->wasStopped())
-    {
-        viewer->spinOnce(100);
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
-    }
+    visualizeRabbaniRegions(root, originalCloud);
 }
 
 void RabbaniRM3D::assignment_org_ID(RabbaniVertex *root)

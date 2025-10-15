@@ -9,6 +9,10 @@
 #include <iostream>
 #include <vector>
 
+#define RED_TEXT "\033[31m"
+#define GREEN_TEXT "\033[32m"
+#define RESET_COLOR "\033[0m"
+
 using R_GetFeat = RAGCallbacks::GetFeatures<RabbaniFeatures, RabbaniEdge, RabbaniVertex>;
 using R_Update = RAGCallbacks::UpdateFeatures<RabbaniFeatures, RabbaniEdge, RabbaniVertex>;
 using R_Merge = RAGCallbacks::MergingCriteria<RabbaniFeatures, RabbaniEdge, RabbaniVertex>;
@@ -31,7 +35,7 @@ RabbaniRAG::RabbaniRAG(Point_Cloud *pc,
     ne.setInputCloud(cloud);
     auto tree = std::make_shared<pcl::search::KdTree<pcl::PointXYZ>>();
     ne.setSearchMethod(tree);
-    ne.setRadiusSearch(search_radius);
+    ne.setKSearch(15);
     normal_cloud.reset(new pcl::PointCloud<pcl::Normal>);
     ne.compute(*normal_cloud);
 
@@ -83,6 +87,7 @@ void RabbaniRAG::connect_vertex_and_edge()
 {
     this->initial_vertice();
     this->edge_num = this->kd_tree_radius_consturct_topo(this->search_radius);
+    std::cout << RED_TEXT << "[INFO] Edge num " << edge_num << RESET_COLOR << std::endl;
     this->initial_edges(this->edge_num);
 }
 

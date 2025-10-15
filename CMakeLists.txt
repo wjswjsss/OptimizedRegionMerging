@@ -1,4 +1,19 @@
 cmake_minimum_required(VERSION 3.10)
+
+# ————————————————
+# On macOS, ask xcrun for the SDK path and cache it
+if(APPLE)
+  execute_process(
+    COMMAND xcrun --sdk macosx --show-sdk-path
+    OUTPUT_VARIABLE _MACOS_SDK
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  set(CMAKE_OSX_SYSROOT "${_MACOS_SDK}"
+      CACHE PATH "macOS SDK path (from xcrun)" FORCE)
+endif()
+# ————————————————
+
+
 project(region_merging LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)

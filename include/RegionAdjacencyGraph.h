@@ -76,6 +76,7 @@ public:
 			root = this->global_best_optimization(threshold);
 			break;
 		case RunMode::Region:
+			std::cout << "[INFO] Calling func\"region_optimization\"" << std::endl;
 			root = this->region_optimization(threshold, region_size);
 			break;
 		case RunMode::Pruning:
@@ -777,6 +778,7 @@ private:
 			std::vector<std::pair<T1 *, int>> results;
 			if (i < iter - 1)
 			{
+				std::cout << "[INFO] Calling func\"partition_dataset_by_kd_tree\" (member of class RAG) ..." << std::endl;
 				results = this->partition_dataset_by_kd_tree(root, region_size);
 			}
 			else
@@ -784,16 +786,24 @@ private:
 				results.push_back(chains);
 			}
 
+			std::cout << "[INFO] Calling func\"regionalize\" ..." << std::endl;
 			this->regionalize(results); // regionalize the vertice
 			// int cur_size = this->check_data_size_in_region();
 			// std::cout << "Data size after func regionalize(): " << cur_size << std::endl;
+			// std::cout << "[INFO] Regionalize Done! " << std::endl;
 
+			std::cout << "[INFO] Calling func \"region_global_best_optimization(params: std::vector<std::pair<T1 *, int>>results, scales[i])\"" << std::endl;
 			this->region_global_best_optimization(results, scales[i]); // global optimisation in each region
+
+			std::cout << "[INFO] Iter: " << i + 1 << "'s opt has done! " << std::endl;
+
 			// cur_size = this->check_data_size_in_output();
 			// std::cout << "Data size after func optimization(): " << cur_size << std::endl;
-
+			std::cout << "[INFO] Activating suspended edges ... " << std::endl;
 			this->activate_edges(State::Suspend);
 			// ����Ҫ�����ڼ���״̬��vertex���´�����
+
+			std::cout << "[INFO] Chaining vertices ... " << std::endl;
 			chains = this->chaining_vertice();
 			root = chains.first;
 			int num = chains.second;
@@ -1414,25 +1424,82 @@ private:
 			nil = (T1 *)nil->next_in_region;
 		}
 		Cluster *root_cluster = new Cluster((Vertex *)root, partition_minmum_num, pos_dimension, current_partition_size);
+
+		std::cout << "[INFO] Calling(Into) func\"iter_divide_dataset\" (Recursive)" << std::endl;
 		int size = this->iter_divide_dataset(root_cluster, partition_minmum_num, &results);
 		// std::cout << "Total size: " << size << std::endl;
 		delete root_cluster;
 		return results;
 	}
 
+	// int iter_divide_dataset(Cluster *root_cluster, int partition_minmum_num, std::vector<std::pair<T1 *, int>> *divide_result)
+	// {
+	// 	if (root_cluster->dataset_size < partition_minmum_num)
+	// 	{
+	// 		divide_result->push_back(std::make_pair((T1 *)root_cluster->root_vertex, root_cluster->dataset_size));
+	// 		return root_cluster->dataset_size;
+	// 	}
+	// 	// std::pair<Cluster*, Cluster*> child_clusters = root_cluster->divide_cluster_parallel(); //root_cluster->divide_cluster();
+	// 	std::pair<Cluster *, Cluster *> child_clusters = root_cluster->divide_cluster();
+
+	// 	int left_size = iter_divide_dataset(child_clusters.first, partition_minmum_num, divide_result);
+	// 	int right_size = iter_divide_dataset(child_clusters.second, partition_minmum_num, divide_result);
+	// 	return left_size + right_size;
+	// }
+
 	int iter_divide_dataset(Cluster *root_cluster, int partition_minmum_num, std::vector<std::pair<T1 *, int>> *divide_result)
 	{
-		if (root_cluster->dataset_size < partition_minmum_num)
-		{
-			divide_result->push_back(std::make_pair((T1 *)root_cluster->root_vertex, root_cluster->dataset_size));
-			return root_cluster->dataset_size;
-		}
-		// std::pair<Cluster*, Cluster*> child_clusters = root_cluster->divide_cluster_parallel(); //root_cluster->divide_cluster();
-		std::pair<Cluster *, Cluster *> child_clusters = root_cluster->divide_cluster();
+		std::cout << "[INFO] Partition num " << partition_minmum_num << std::endl;
+		std::stack<Cluster *> cluster_stack;
+		cluster_stack.push(root_cluster);
+		int total_size = 0;
+		size_t iteration = 0;
 
-		int left_size = iter_divide_dataset(child_clusters.first, partition_minmum_num, divide_result);
-		int right_size = iter_divide_dataset(child_clusters.second, partition_minmum_num, divide_result);
-		return left_size + right_size;
+		while (!cluster_stack.empty())
+		{
+			++iteration;
+			if (iteration % 10000 == 0)
+			{
+				std::cout << "[DEBUG] iteration=" << iteration
+						  << "  stack_size=" << cluster_stack.size() << "\n";
+
+				std::cout << "[DEBUG] iteration=" << iteration
+						  << "  result region vector size=" << divide_result->size() << "\n";
+
+				std::cout << "[DEBUG] iteration=" << iteration
+						  << "  total size=" << total_size << "\n";
+			}
+
+			Cluster *current = cluster_stack.top();
+			cluster_stack.pop();
+
+			if (iteration % 10000 == 0)
+			{
+				std::cout << "[DEBUG] popping cluster @" << current
+						  << "  size=" << current->dataset_size << "\n";
+			}
+
+			if (current->dataset_size < partition_minmum_num)
+			{
+				divide_result->push_back(std::make_pair((T1 *)current->root_vertex, current->dataset_size));
+				total_size += current->dataset_size;
+				// We release the memory at Other place!
+			}
+			else
+			{
+				std::pair<Cluster *, Cluster *> child_clusters = current->divide_cluster();
+				// sanity-check: are they really new?
+				if (child_clusters.first == current ||
+					child_clusters.second == current)
+				{
+					std::cerr << "[WARNING] divide_cluster returned the same pointer!\n";
+					break;
+				}
+				cluster_stack.push(child_clusters.second);
+				cluster_stack.push(child_clusters.first);
+			}
+		}
+		return total_size;
 	}
 
 	void check_direct(Vertex *root)

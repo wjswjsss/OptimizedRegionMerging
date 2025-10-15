@@ -378,9 +378,9 @@ region_merging: /opt/homebrew/lib/libpcl_sample_consensus.dylib
 region_merging: /opt/homebrew/lib/libpcl_ml.dylib
 region_merging: /opt/homebrew/lib/libpcl_io.dylib
 region_merging: /opt/homebrew/lib/libpcl_io_ply.dylib
-region_merging: /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/libpcap.tbd
+region_merging: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libpcap.tbd
 region_merging: /opt/homebrew/lib/libpng.dylib
-region_merging: /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
+region_merging: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/libz.tbd
 region_merging: /opt/homebrew/lib/libpcl_search.dylib
 region_merging: /opt/homebrew/lib/libpcl_octree.dylib
 region_merging: /opt/homebrew/lib/libpcl_kdtree.dylib
